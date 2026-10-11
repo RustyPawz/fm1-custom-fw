@@ -243,9 +243,23 @@ Community-developed custom firmwares, mods, and experimental firmware projects f
       * **Preset Management:** Persistent favorite stars, All/Favorites browsing filtering, and live MIDI event/chord monitor.
     * **Installation:** Browser-based WebMIDI installer via USB.
 
+34. **[Bubba Machine by Erbubar23](https://github.com/Erbubar23/bubba-machine) ([Website](https://erbubar23.github.io/bubba-machine/) | [Web Emulator](https://erbubar23.github.io/bubba-machine/emulador.html) | [Manual](https://github.com/Erbubar23/bubba-machine/blob/main/docs/MANUAL.md)):**
+    * **License:** Open Source (GPL-3.0-or-later). Written from scratch in C99.
+    * **Concept:** 6-track live performance groovebox firmware for the FM-1 with four gestures per button, dedicated HOME layer, and zero third-party audio dependencies (all factory kits and wavetables synthesized procedurally in C).
+    * **Features:**
+      * **6 Flexible Tracks:**
+        * `T1` TR-Style Drum Machine: 16 instruments with independent polymeter track lengths, accent, ratchets, flam, parameter locks (P-Locks), fill-only steps, and live TR-style roll/erase while running.
+        * `T2` Sampler 3.0: 8-slice loop engine reassembled bar-by-bar via algorithmic generator (`TU` programmed row vs `SUENA` played row), integrated sample recorder, take library, slice editor, and 3-band frequency waveform visualization (low/mid/high).
+        * `T3` Wavetable Bass: Glide and wavetable synthesis.
+        * `T4–T6` Assignable Tracks: Configurable as `SYNTH`, `MONO`, `KIT` (secondary drum machine), or `MIDI`. Per-track arpeggiator, looper, and dedicated musical scale.
+      * **Polymeter & Independent Track Timing:** Each track features independent length (1–64 steps) and clock multipliers/dividers (×2 to ×1/4).
+      * **Chord Grid:** 16 color-coded chords displaying scale degree and harmonic function.
+      * **Live Performance & Safe Flash:** 4 chained scenes, song recording, auto-fills, 16 punch-in FX, track/instrument mutes, and crash-resilient flash saving (CRC, end commit, wear-leveling, and auto-save on stop).
+    * **Status & Installation:** Firmware runs in desktop simulation and the in-browser WebAssembly emulator; hardware flasher/installer is in roadmap development.
+
 ### 1.2. Modular Firmware Platforms & Builders
 
-34. **[Optimist by w0ts](https://github.com/w0ts/optimist):**
+35. **[Optimist by w0ts](https://github.com/w0ts/optimist):**
     * **License:** Open Source (GPL-3.0-only). Derived from SLOOP, Felucca, Melodee, and X0X.
     * **Status:** In active development (tested in emulator).
     * **Concept:** Modular firmware builder and platform allowing users to custom-assemble FM-1 firmware images tailored to flash and RAM budgets.
@@ -255,14 +269,14 @@ Community-developed custom firmwares, mods, and experimental firmware projects f
       * **SLOOP 2.4 Project Compatibility & Web Editor:** Full project interchangeability and web-based parameters librarian.
     * **Installation:** Build and flash via CLI/Docker toolchain.
 
-35. **[Dinghy by Sven Trogus (zvenson)](https://github.com/zvenson/dinghy):**
+36. **[Dinghy by Sven Trogus (zvenson)](https://github.com/zvenson/dinghy):**
     * **License:** Open Source (GPL-3.0-only).
     * **Concept:** Minimal, clean firmware skeleton for custom developers: 4-voice sine wave synthesizer on top of working display, audio DMA, and button input drivers.
     * **Installation:** Compile and flash via Makefile/CLI.
 
 ### 1.3. Gaming, Emulators & Non-Audio Ports (Games & Experiments)
 
-36. **[FM-1 Doom by Sven Trogus (zvenson)](https://github.com/zvenson/fm1doom) ([Web Installer](https://dx7.designburgapps.com/doom/)):**
+37. **[FM-1 Doom by Sven Trogus (zvenson)](https://github.com/zvenson/fm1doom) ([Web Installer](https://dx7.designburgapps.com/doom/)):**
     * **License:** Open Source (GPL-2.0-or-later / GPL-3.0; FreeDM game data under BSD-3-Clause). Based on doomgeneric, Chocolate Doom, and the sloopDX / SLOOP / Felucca platform.
     * **Concept:** Port of classic Doom (running a FreeDM arena map) on the M-VAVE FM-1 synthesizer hardware.
     * **Features:**
@@ -271,26 +285,26 @@ Community-developed custom firmwares, mods, and experimental firmware projects f
       * Preserves sloopDX projects in flash without overwriting user patch data.
     * **Installation:** Browser WebMIDI installer via USB directly from the project page.
 
-37. **[FM-1 NES by Keitark](https://github.com/Keitark/fm1-nes):**
+38. **[FM-1 NES by Keitark](https://github.com/Keitark/fm1-nes):**
     * **License:** Open Source.
     * **Status:** Experimental / Source only (reference proof-of-concept).
     * **Concept:** Nintendo Entertainment System (NES) emulator running on the FM-1 hardware.
     * **Features:** Uses the FM-1's 27 keys as the game controller and its color screen as the television display. Developed as a worked example and educational kit for writing bare-metal FM-1 firmware from scratch.
     * **Installation:** Compile from source (no web installer or prebuilt release; does not produce audio/music).
 
-38. **[Mocky by Charles Vestal](https://github.com/charlesvestal/fm1-mocky) ([Web App](https://charlesvestal.github.io/fm1-mocky/)):**
+39. **[Mocky by Charles Vestal](https://github.com/charlesvestal/fm1-mocky) ([Web App](https://charlesvestal.github.io/fm1-mocky/)):**
     * **License:** Open Source (GPL-3.0).
     * **Concept:** Display testing firmware and web companion for transmitting and displaying arbitrary bitmap pictures on the FM-1's color screen over WebMIDI.
     * **Installation:** Browser WebMIDI installer via USB.
 
-39. **[fm1-mdx by Keitark](https://github.com/Keitark/fm1-mdx):**
+40. **[fm1-mdx by Keitark](https://github.com/Keitark/fm1-mdx):**
     * **License:** Open Source (GPL-3.0).
     * **Concept:** Experimental Sharp X68000 MDX/PDX karaoke music player running a software YM2151 FM chip emulation allowing interactive part muting and live keyboard accompaniment.
     * **Installation:** Research project / computer emulator testing.
 
 ### 1.4. Stock Firmware Patchers & Binary Mods
 
-40. **[FM-1 Firmware Patcher by Christian Zietz (czietz)](https://github.com/czietz/fm1-firmware-patcher):**
+41. **[FM-1 Firmware Patcher by Christian Zietz (czietz)](https://github.com/czietz/fm1-firmware-patcher):**
     * **License:** Open Source (MIT).
     * **Target:** Stock official **V15** firmware (`FM-1.fwsc`).
     * **Modifications & Bug Fixes:**
