@@ -1,0 +1,241 @@
+# M-VAVE FM1 Hardware Architecture, Protocol & Reverse Engineering Reference
+
+Technical reference and reverse-engineering findings for the **M-VAVE FM1** synthesizer (powered by the **JieLi AC791N** processor / WL82 series) — covering hardware analysis, bootloader memory maps, OTA MIDI SysEx protocol specifications, binary offsets, recovery vectors, and disassembly tooling.
+
+> Part of the [M-VAVE FM1 Resource Hub](README.md).
+
+---
+
+## 1. Hardware & Device Ecosystem Overview
+
+### 1.1. Target Device & Processor
+* **Target Device:** **M-VAVE FM1** (FM Synthesizer / MIDI Controller).
+* **Processor SoC:** **JieLi AC791N** (WL82 series, 32-bit RISC core).
+* **Official Development Board:** **JL_AC79_DevKit V1.0** (AC791N evaluation kit).
+  * [JL_AC79_DevKit V1.0 Official Documentation](https://doc.zh-jieli.com/AC79/zh-cn/release_v1.0.3/board_description/board_overview/index.html)
+  * Note: In retail/marketplace listings, this devboard has been found available for purchase primarily on **Taobao**.
+  
+  ![JL_AC79_DevKit V1.0](photos/devboard.webp)
+
+* **Synthesizer Product Page:** [Cuvave / M-VAVE FM-1 Product Page](http://www.cuvave.com/product?id=fm-1)
+* **Latest Available Synthesizer Firmware:** [FM-1.fwsc (v15 2026-07-30)](https://yms-file-store.oss-cn-hongkong.aliyuncs.com/software/firmware/FM-1.fwsc)
+* **Firmware v15 Entropy Analysis:** ([Source Issue #1](https://github.com/aroum/fm1-custom-fw/issues/1))
+  
+  ![Firmware v15 Entropy Analysis](photos/firmware_entropy.png)
+
+* **M-VAVE Ecosystem:** Many other M-VAVE audio products (MIDI foot controllers, audio interfaces, and digital pedals) use the same JieLi AC791N / AC69xx processor platform and share similar OTA firmware architectures.
+
+### 1.2. Hardware PCB Characteristics & Recovery Vector
+* **No Debug Ports / Jumpers:** The M-VAVE FM1 PCB contains **no exposed debug headers** (JTAG, SWD, or UART debug pads).
+* **No Recovery Buttons:** There are **no hidden jumper pins or physical recovery buttons** on the board for forcing bootloader / DFU mode.
+* **Firmware Update & Recovery Vectors:**
+  * **Standard User-Mode Flashing:** MIDI SysEx over USB is the official, application-level firmware update channel available on the device.
+  * **Software-Bricked Recovery over Plain USB (Mask-ROM `WL82 UBOOT1.00` mode):**
+    * When a firmware flash is corrupt, incomplete, or fails to boot, the JieLi AC791N mask-ROM automatically drops into its built-in USB recovery mass-storage mode: **`WL82 UBOOT1.00 USB Device`** (`VID: 0x4C4A`, `PID: 0x8057`, SCSI / Mass Storage interface).
+    * In this state, **no extra hardware or case opening is required**: a standard USB data cable and [`jl-uboot-tool`](https://github.com/kagaimiq/jl-uboot-tool) on Windows/Linux are sufficient to communicate directly with the SPI flash via SCSI pass-through.
+    * **Crucial Flash Addressing Rules:**
+      * **Bootloader / Head (`0x00000000` – `0x00003FFF`):** NEVER overwrite or erase this 16 KB region. It holds the partition header and boot vector.
+      * **App Code Area (`0x00004000` – `0x00092FFF`):** Extracted application binaries (e.g., from `FM-1.fwsc` via [`fm1_extract_app.py`](https://gist.github.com/Acrawf1/ae2b9930b49231db397568cfc2abc2a8)) MUST be written starting at offset **`0x4000`**, never at `0x0`.
+      * **Felucca 0.9 → 1.0.x Upgrade Brick Fix:** Upgrading from Felucca 0.9-beta to 1.0.x can soft-brick due to incompatible legacy preset structures. Erasing `0x97000 0x8000` and `0xFC000 0x2000` via `jl-uboot-tool` resolves this issue.
+    * Full step-by-step unbricking guide: [Reddit: Unbricking a soft-bricked FM-1 (black screen / "WL82 UBOOT1.00") over plain USB](https://www.reddit.com/r/MVaveFM1/comments/1wz48t7/guide_unbricking_a_softbricked_fm1_black_screen/).
+  * **Hardware Recovery Vector (Forcing Mask-ROM via USB_KEY Dongle):**
+    * If the processor hangs without falling into `WL82 UBOOT1.00` automatically, the mask-ROM download mode can be forced via an external RP2040 dongle ([FM-1 Transporter](https://github.com/kurogedelic/FM-1-transporter) / [mvave-fm1-open-firmware](https://github.com/ip2k/mvave-fm1-open-firmware) / [MvaveFM1Unbricker](https://github.com/Quixotic7/MvaveFM1Unbricker)).
+    * The dongle pulses the JieLi hardware boot key (`0x16EF` at ~50 kHz) over USB D+/D- lines during power-up, allowing SPI flash recovery and unbricking through the external USB-C port without opening the enclosure.
+
+### 1.3. Device Disassembly & Case Opening Instructions
+To open the physical enclosure of the M-VAVE FM1:
+1. **Remove Bottom Screws:** Unscrew **6 self-tapping screws** from the bottom casing.
+   * **Hidden Screw:** 5 screws are visible on the bottom surface; **1 screw is hidden in the center under the product sticker**.
+   * **Rubber Feet:** The rubber feet do **NOT** need to be unglued or peeled off (no screws are hidden under the rubber pads).
+2. **Separate Housing Latches:** After removing all 6 screws, carefully unclip the internal **plastic retaining latches/snaps** running along the bottom enclosure seam to separate the case halves.
+
+* **Teardown & Internal PCB Photos:**
+  * High-resolution disassembly photos of the PCB and internal components are available locally in the [photos/](photos/) directory.
+  * Teardown photo discussion and community analysis can also be viewed on [Reddit r/synthdiy](https://www.reddit.com/r/synthdiy/comments/1vgotwe/comment/p3gk1ko/).
+
+---
+
+## 2. Core Technical Findings
+
+### 2.1. Does the firmware update occur over MIDI?
+**Yes, the firmware update occurs entirely over the MIDI SysEx protocol.**
+
+The application does not use dedicated USB DFU/CDC emulation or direct low-level raw flash access during standard operation. The entire process (from handshake to streaming every byte of firmware and preset data) is executed via **USB MIDI SysEx messages** using the **RtMidi** library on top of macOS **CoreMIDI**.
+
+### 2.2. Where is the firmware file stored?
+**The firmware binary is embedded directly inside the native executable file.**
+
+There are no external `.bin` or `.hex` files in the resources directory. Inside the executable file [M-UPGRADE-FM1](M-UPGRADE-FM1.app/Contents/MacOS/M-UPGRADE-FM1), the firmware image is stored as an embedded Qt resource package:
+* **Qt Resource Length Prefix:** `0x47EB4` (`0x000ABC14` = 704,052 bytes).
+* **Package Span:** `0x47EB8` – `0xF3CEC` (704,052 bytes). Contains stock V14 (`FM-1_014`).
+* **Container Signatures:** `@JMUA` (offset `0xF3BB8`), `JLUFW` (offset `0xF3CDC`), and target CPU tag `AC791N` at `+0x424`.
+
+### 2.3. Is Signature Verification implemented?
+**Asymmetric cryptographic signature verification (RSA/ECDSA/AES) is NOT implemented.**
+
+Security checks include:
+1. **Container Header & Signature Validation:** Verification of `@JMUA` / `JLUFW` signatures, target device type, and version strings.
+2. **Size Boundaries Validation:** `Embedded firmware too small: %1 bytes (min %2)`.
+3. **Checksums (CRC/Byte Checksums):** Every block transmitted via SysEx is accompanied by a byte checksum.
+
+---
+
+## 3. M-UPGRADE-FM1 Application Architecture
+
+* **UI Framework:** Qt6 (`MainView`, `SelectFile`, `LoadingWidget`).
+* **MIDI Stack:** RtMidi (`RtMidiIn`, `RtMidiOut`, `MidiInCore`, `MidiOutCore`).
+* **OTA Update Worker Modules:**
+  * `OtaUpgradeWorker`: Background worker managing the two-step firmware flashing process.
+  * `PresetUpdateWorker`: Background worker handling preset bank uploads.
+  * `OtaFormat`: Utility class responsible for packing (`pack`), parsing (`parse`, `tryParse`), and building metadata frames (`buildMetaSequence`).
+
+---
+
+## 4. MIDI SysEx Commands & Verified OTA Protocol
+
+### 4.1. Handshake & Device Detection Trace
+* **Purpose:** Query connected devices for FM1 identity and status.
+* **Handshake Query (Host → Device):** `F0 00 32 45 00 00 00 40 7F F7`
+* **Incoming Response Frame (41 bytes wire, 34 bytes unpacked):**
+  `F0 00 32 45 58 01 00 00 23 4D 5A 44 XX XX XX ... 40 [chk] F7`
+  * Unpacks (7-bit LSB-first) on channel `00 59 11` to a 34-byte ID block containing model identity (`FM-1_015` or `FM-1_014`).
+* **Parameter Query Fuzzing Note:** Exhaustive read scanning confirmed that the M-VAVE FM1 synthesizer responds **exclusively to Parameter ID `0x40` (64)**. Queries sent to all other Parameter IDs produce no response.
+
+### 4.2. Verified Two-Step Session Flow (Device-Pull Protocol)
+Analysis of the hardware verifier (`AL-255/FM-1-RE`, `docs/io/11-ota-protocol.md`, Issue #2) confirms that the firmware update is a **device-pull** architecture rather than host-push:
+
+1. **Step 1: Verification Mode**
+   * Host sends enter-upgrade command: `F0 22 24 35 7F F7`.
+   * The device begins *pulling* file chunks via read requests. After entry reads pass verification, the device writes a JieLi `UPDATA_PARM` boot record and soft-resets into the OTA loader.
+   * Device re-enumerates as USB device `4D4A:4155` (`ota-FM-1`).
+
+2. **Step 2: OTA Flash Upgrade Mode**
+   * Host sends handshake query and `F0 22 24 35 7F F7` again to the OTA loader.
+   * The device pulls the complete image with read requests (header reads, entry-list reads descending from the top, then bulk data ascending).
+   * Upon reaching completion, the device requests address `0xF0000000` (length 8); host replies with `"success\0"` on channel `00 32 41 01`. The device then reboots into the new firmware.
+
+### 4.3. Wire Framing: Read-Request and Data-Response
+All payload data between the host and device is framed as:
+```text
+F0 00 32 41 41 [f1:4][addr:4][len:4] [pack7(data)...] F7
+```
+* **Header:** `00 32 41 41` (7-bit wire packing of internal channel `00 59 30`).
+* **Fields:** `f1`, `addr`, and `len` are 32-bit little-endian integers encoded as 4×7-bit groups (`b0 | b1<<7 | b2<<14 | b3<<21`).
+  * `len` encodes `(length << 4) | flashtype`.
+  * In requests (Device → Host): `f1 = 0`.
+  * In responses (Host → Device): `f1 = length >> 4`.
+* **Data Encoding:** Continuous **8→7 LSB-first bitstream** (7 wire bytes per 8 data bytes). The payload contains `length` data bytes plus 1 checksum byte:
+  ```python
+  checksum = ~(flashtype + sum(data) + sum(addr_LE4) + sum(len_LE3)) & 0xFF
+  ```
+
+---
+
+## 5. Memory Map, Bootloader & Custom Firmware Development
+
+### 5.1. Bootloader Layout & Memory Offsets
+In JieLi microcontrollers (AC791N / WL82 series):
+1. **Mask ROM (ROM0):** Hardwired ROM initiating chip reset.
+2. **UBOOT (Bootloader):** Located at SPI Flash physical address **`0x00000000`** (size 16 KB – 64 KB).
+3. **Partition Table & Header (`app_dir_head` / `isd_config.ini`):** Partition table and pin definitions (Power Pin, UART, SD).
+4. **App Code Offset (`app.bin`):** User application code starts at Flash offset **`0x4000`** (16 KB) or **`0x10000`** (64 KB) as specified by `isd_config.ini`.
+
+### 5.2. Custom Firmware Support & CRITICAL Bootloader Re-entry Requirement
+
+**Flashing custom firmware via this protocol is fully supported, BUT requires strict adherence to bootloader re-entry logic:**
+
+> [!CAUTION]
+> **CRITICAL BOOTLOADER RE-ENTRY REQUIREMENT:**  
+> Because the M-VAVE FM1 PCB lacks physical recovery buttons or debug pads, **any custom firmware MUST retain or implement a mechanism to enter the bootloader / OTA mode** (e.g. by listening for the SysEx verification/upgrade commands `0x01` / `0x02` or handling a button combination during startup).  
+> **If custom firmware is flashed without a bootloader entry handler, the device will be permanently soft-locked against future MIDI updates or rollback to stock firmware.**
+
+**Requirements for compiling custom firmware:**
+1. **Toolchain:** Official JieLi GCC toolchain targeting **Pi32v2 / q32s** architecture.
+2. **Linker Script:** Code must be linked at the target partition offset (`origin Flash: 0x4000` / `0x10000`).
+3. **Bootloader Handler:** Include the SysEx parser / OTA transition handler in the custom application code.
+4. **Container Packaging (`isd_tools`):** Package output binaries using `isd_download` / `fw_pack` into a UFW container with `@JMUA` / `JLUFW` headers.
+5. **Flashing:** The resulting UFW file can be transmitted via `M-UPGRADE-FM1` or the custom Python script ([fm1_flasher.py](fm1_flasher.py)).
+
+---
+
+## 6. Binary References & Offsets
+
+Binary offsets extracted from analysis:
+
+1. **Native Application Binary:**
+   * Binary Path: [M-UPGRADE-FM1](M-UPGRADE-FM1.app/Contents/MacOS/M-UPGRADE-FM1)
+   * **Offset `0xEEDDC`**: Resource path string `usb_hid_ota.bin`.
+   * **Offset `0xF14AD`**: Bootloader configuration block `isd_config.ini`, `app_dir_head`, `uboot`, `POWER_PIN`.
+   * **Offset `0xF3BB8`**: Container signature `@JMUA`.
+   * **Offset `0xF3CDC`**: JieLi firmware container magic `JLUFW`.
+   * **Offset `0x14C010`**: SysEx header data symbol `_s_arrSysexHead`.
+
+2. **Supported Hardware & UBOOT Documentation:**
+   * JieLi Chip Series List (WL82 / AC791N): [README.md:L84](jl-uboot-tool/README.md#L84)
+   * UBOOT Architecture: [what-is-uboot.md](jl-uboot-tool/docs/what-is-uboot.md)
+
+---
+
+## 7. Firmware Size Boundaries
+
+Firmware size is constrained by three factors:
+
+### 7.1. SPI Flash Capacity
+AC791N chips feature **4 MB (32 Mbit)** or **8 MB (64 Mbit)** internal/external SPI Flash.
+* **Layout:**
+  * **UBOOT (Bootloader):** First `16 KB` – `64 KB` (`0x00000000` – `0x00010000`).
+  * **VM / Flash DB (Settings):** Final `16 KB` – `64 KB` of Flash.
+  * **User App Partition:** Remaining space between UBOOT and VM.
+* **Maximum Image Size:** For 4 MB Flash, the maximum compiled image size is approximately **~3.9 MB**.
+
+### 7.2. Application Boundary Validation
+* **Lower Limit:** `Embedded firmware too small: %1 bytes (min %2)` (requires valid `@JMUA` header and >64 KB size).
+* **Upper Limit:** Protocol size field is 32-bit (up to 4 GB payload support).
+
+### 7.3. Execution Model (XIP)
+Code runs via **XIP (Execute-In-Place)** directly from SPI Flash via the MCU hardware cache. SRAM size limits dynamically allocated memory (`.bss` / `.data`), but does not restrict binary code size in Flash.
+
+---
+
+## 8. Python Firmware Utility (`fm1_flasher.py`)
+
+A standalone CLI tool [fm1_flasher.py](fm1_flasher.py) provides firmware extraction and experimental protocol tooling. Project environment is managed via [`uv`](https://github.com/astral-sh/uv) (configured in [`pyproject.toml`](pyproject.toml)).
+
+> [!WARNING]
+> **FLASHING STATUS & PROTOCOL DISCLAIMER (Issue #2):**  
+> Direct firmware flashing implemented in [fm1_flasher.py](fm1_flasher.py) is **experimental and non-functional** on physical hardware because it assumes a host-push packet structure, whereas the actual synthesizer hardware runs a **device-pull protocol** with 8→7 LSB-first bitstream encoding (documented in [Section 4: MIDI SysEx Commands & Verified OTA Protocol](#4-midi-sysex-commands--verified-ota-protocol)).  
+> **For verified, byte-exact firmware flashing on physical hardware, use `tools/fm1_ota.py` from [AL-255/FM-1-RE](https://github.com/AL-255/FM-1-RE).**
+
+### Features:
+* **Firmware Extraction (`--extract`):** Fully functional. Carves the exact 704,052-byte `.fwsc` package (`0x47EB8`–`0xF3CEC`, stock V14) from the macOS `M-UPGRADE-FM1` binary by resolving the big-endian Qt resource length prefix and verifying the `AC791N` marker.
+* **MIDI Port Discovery (`--list`):** Scans and enumerates available MIDI inputs and outputs.
+* **Experimental Flash Tooling (`--file`):** Research skeleton for protocol analysis.
+
+### Example Commands:
+```bash
+# List available MIDI ports
+uv run fm1-flasher --list
+
+# Extract embedded .fwsc firmware from macOS updater app
+uv run fm1-flasher --extract FM-1_014.fwsc --app M-UPGRADE-FM1.app/Contents/MacOS/M-UPGRADE-FM1
+
+# Flashing on physical hardware (use AL-255's verified tool):
+python3 tools/fm1_ota.py flash FM-1.fwsc
+```
+
+---
+
+## 9. Firmware Disassembly & Reverse Engineering
+
+Reverse-engineering JieLi microcontrollers (AC791N / WL82 / AC69x series) requires specialized tools due to JieLi's proprietary 32-bit RISC processor architectures (**Pi32**, **Pi32v2**, **q32s**).
+
+### 9.1. Disassembly Tools & Ghidra Plugin
+
+* **Ghidra Processor Module ([ghidra-jieli](https://github.com/kagaimiq/ghidra-jieli)):**
+  An open-source Ghidra processor module targeting JieLi CPU architectures:
+  * `pi32`: Functional disassembly support for older JieLi chips.
+  * `pi32v2`: Processor definition for **AC791N (WL82 series)**. Enables Ghidra to parse function boundaries, construct control flow graphs (CFG), and trace MMIO register addresses (`JL_PORTA`, `JL_PORTB`, `JL_PORTC`).
+  * `q32s`: Processor definition for BD19/BD29 series.
+
+* **JieLi Official Toolchain (`pi32v2-elf-objdump`):**
+  Provides 100% accurate instruction decoding from the vendor SDK, used in combination with Ghidra for verifying complex instruction groups.
