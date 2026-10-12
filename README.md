@@ -536,6 +536,12 @@ Useful open-source tools, documentation, and SDK repositories:
 11. **[Choppa Lite by WaveLoop](https://waveloop.app/toys/choppa):**
     In-browser, installable sampler web application for the FM-1. Allows recording up to 12 seconds of audio, chopping it into 16 pads, and transferring the sample bank directly to the FM-1 over USB-MIDI. Built for Felucca and SLOOP firmware families (also available for iOS, with Android version planned).
 
+12. **[take-taker by groundstation1](https://github.com/groundstation1/take-taker) ([Releases / APK](https://github.com/groundstation1/take-taker/releases)):**
+    * **License:** Open Source (MIT).
+    * Android multitrack audio & video recorder designed specifically for USB audio devices.
+    * When paired with the **Melodee** firmware on FM-1 (which exposes all 4 audio outputs as discrete USB audio streams), it bypasses Android's default stereo downmixing via raw USB mode to record each channel as an independent track.
+    * Exports individual lossless FLAC stems, normalized MP3 mixdowns, or synced video takes (using phone camera footage or rendered live scrolling waveform overlays).
+
 ### 3.6. Developer Frameworks, UI Designers & Curated Collections
 
  1. **[MvaveFM1-Designer by Quixotic7](https://github.com/Quixotic7/MvaveFM1-Designer):**
