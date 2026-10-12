@@ -533,6 +533,9 @@ Useful open-source tools, documentation, and SDK repositories:
 10. **[SLOOP 8-Track Web Workstation by smhulme](https://github.com/smhulme/sloop-web-8trk):**
     Hybrid production environment driving SLOOP's four hardware tracks over WebMIDI while adding four synchronized browser audio tracks alongside them.
 
+11. **[Choppa Lite by WaveLoop](https://waveloop.app/toys/choppa):**
+    In-browser, installable sampler web application for the FM-1. Allows recording up to 12 seconds of audio, chopping it into 16 pads, and transferring the sample bank directly to the FM-1 over USB-MIDI. Built for Felucca and SLOOP firmware families (also available for iOS, with Android version planned).
+
 ### 3.6. Developer Frameworks, UI Designers & Curated Collections
 
  1. **[MvaveFM1-Designer by Quixotic7](https://github.com/Quixotic7/MvaveFM1-Designer):**
