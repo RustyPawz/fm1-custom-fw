@@ -201,6 +201,11 @@ Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its 
     * **Concept:** Experimental synthesis expansion fork adding Karplus-Strong string synthesis, plucked physical models, additive synthesis, DX7, and VA engines.
     * **Installation:** Web installer and companion editor.
 
+ 9. **[FM80S by Floydus (y6zkcqnf5r-hue)](https://github.com/y6zkcqnf5r-hue/fm1-fm80s):**
+    * **License:** Open Source (GPL-3.0). Based on SLOOP 2.5 and Felucca.
+    * **Concept:** Synthwave-oriented synth-looper firmware for live loop stacking, step sequencing, and song assembly with planned 8-track expansion.
+    * **Installation:** Build from source via CLI toolchain.
+
 #### 1.1.3. FoMni Family (Strumplate & Chord Instruments)
 
 Suzuki Omnichord and Japanese Shigin accompaniment instruments featuring strumplate and chord-shaping workflows:
@@ -311,9 +316,26 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **USB-C Audio:** Integrated class-compliant digital stereo audio output over USB-C.
     * **Installation:** Browser WebMIDI installer via USB.
 
+13. **[ETCH by SikkenWorks](https://github.com/SikkenWorks/ETCH) ([Homepage & Web Installer](https://etch.sikkenworks.com/)):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** "Draw. Morph. Modulate." — waveform drawing and morphing synthesizer firmware.
+    * **Features:** 8-voice polyphony, direct on-device single-cycle waveform drawing (Waves A, B, and modulating Wave C), real-time interpolation/morphing between drawn waves, wave library, motion recording, and arpeggiator with generative RIFF mode.
+    * **Installation:** Browser WebMIDI installer via USB or flashing prebuilt `.fwsc` image.
+
+14. **[AMBII by MilkBoyG / JalopyMusic](https://github.com/JalopyMusic/fm1-milkboyg-ambii):**
+    * **License:** Open Source (GPL-3.0). Built on Melodee and Felucca.
+    * **Concept:** Alternative performance and recording interface firmware built on Melodee's real multi-engine C core.
+    * **Features:** Four tracks with scoped pattern actions, drum ratchets, parameter automation graphs with undo, shared delay/reverb, and dedicated Galaxy / Dark Matter UI themes.
+    * **Status:** In-browser prototype and development preview (no hardware release image yet).
+
 ### 1.2. Modular Firmware Platforms & Builders
 
- 1. **[Optimist by w0ts](https://github.com/w0ts/optimist):**
+ 1. **[fm1-rocket-os by cmlarsen](https://github.com/cmlarsen/fm1-rocket-os):**
+    * **License:** Open Source (GPL-3.0). Forked from X0X and Felucca.
+    * **Concept:** Clip-launching performance firmware turning the FM-1 into an Ableton Live-style clip launcher and matrix sequencer.
+    * **Status:** Work in progress.
+
+ 2. **[Optimist by w0ts](https://github.com/w0ts/optimist):**
     * **License:** Open Source (GPL-3.0-only). Derived from SLOOP, Felucca, Melodee, and X0X.
     * **Status:** In active development (tested in emulator).
     * **Concept:** Modular firmware builder and platform allowing users to custom-assemble FM-1 firmware images tailored to flash and RAM budgets.
@@ -387,6 +409,12 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * Disables unhandled MIDI aftertouch messages that cause unwanted heavy vibrato.
       * Modifies the UI colorway: changes the main oscilloscope display to dark blue and the FX selection cursor to green (as visual confirmation of patched firmware).
     * **Usage:** Python patcher script applying precise binary offsets (`python patch_firmware.py FM-1.fwsc FM-1-fixed.fwsc`). Flashed via M-VAVE's M-UPGRADE utility.
+
+ 2. **[FM-1 Macropad Patch by smememe](https://github.com/smememe/fm1-macropad-patch) ([Web Patcher](https://smememe.github.io/fm1-macropad-patch/)):**
+    * **License:** Open Source (MIT).
+    * **Target:** Stock official **V15** firmware (`FM-1.fwsc`).
+    * **Concept & Modifications:** Binary patch that transforms the FM-1 into a 55-input MIDI macro pad controller. Modifies the firmware so every physical button, piano key, and rotary knob sends a USB-MIDI note message while turning off all LEDs. Combined with desktop hotkey software, it converts the synthesizer into an external macro pad.
+    * **Usage:** Apply patch directly in the browser via WebAssembly/WebMIDI or via Python script (`python3 fm1patch.py FM-1.fwsc`). Flashed via standard update tools.
 
 > [!TIP]
 > **Community Flashing Experience & Safe Upgrade Practice:**  
@@ -502,6 +530,9 @@ Useful open-source tools, documentation, and SDK repositories:
  6. **[FM1VST by Quixotic7](https://github.com/Quixotic7/FM1VST):**
     DAW plugin host (VST3, AU, and standalone) running Felucca-family firmwares (ChoralRoot, Felucca, Melodee) compiled directly from source and switchable on the fly.
 
+ 7. **[fm1-emu by Joakim Eriksson](https://github.com/joakimeriksson/fm1-emu) ([Web Emulator](https://joakimeriksson.github.io/fm1-emu/)):**
+    Full hardware emulator for the M-VAVE FM-1 running its firmwares completely unchanged both natively and directly in the browser via WebAssembly (emulates JieLi CPU, display, buttons, knobs, and audio output).
+
 ### 3.5. Web Editors, Patch Librarians & Companion Utilities
 
  1. **[FM-1 Online Editor & Firmware Directory](https://fm1-editor.com/) ([Firmware Catalog](https://fm1-editor.com/firmware/)):**
@@ -543,6 +574,16 @@ Useful open-source tools, documentation, and SDK repositories:
     * Android multitrack audio & video recorder designed specifically for USB audio devices.
     * When paired with the **Melodee** firmware on FM-1 (which exposes all 4 audio outputs as discrete USB audio streams), it bypasses Android's default stereo downmixing via raw USB mode to record each channel as an independent track.
     * Exports individual lossless FLAC stems, normalized MP3 mixdowns, or synced video takes (using phone camera footage or rendered live scrolling waveform overlays).
+
+13. **[FM-1 Patch Bank Utility (Soundspirate) by klonecom](https://github.com/klonecom/M-VAVE-FM1-LOADER---):**
+    * Single-file, client-side browser Web MIDI tool for transmitting `.syx` patch bank files to the FM-1 with auto-detection and SysEx framing validation.
+
+14. **[FM1 Bank Sender by Leo Maimoni](https://github.com/leomaimoni/fm1-bank-sender):**
+    * Android utility app to transmit DX7 sound bank files (`.syx`, 32-voice banks or single patches) to the M-VAVE FM-1 via USB-OTG without entering special receive modes.
+
+15. **[Felucca Editor Skill by hunterxiong2026](https://github.com/hunterxiong2026/fm1-felucca-editor-2026):**
+    * **License:** Open Source (MIT).
+    * Natural language LLM / Agent skill integration for controlling the M-VAVE FM-1 (running Felucca firmware) over MIDI SysEx for tone design, multi-track arranging, and song playback.
 
 ### 3.6. Developer Frameworks, UI Designers & Curated Collections
 
