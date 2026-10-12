@@ -23,7 +23,7 @@ Technical reference and reverse-engineering findings for the **M-VAVE FM1** synt
   
   ![Firmware v15 Entropy Analysis](photos/firmware_entropy.png)
 
-* **M-VAVE Ecosystem:** Many other M-VAVE audio products (MIDI foot controllers, audio interfaces, and digital pedals) use the same JieLi AC791N / AC69xx processor platform and share similar OTA firmware architectures.
+* **M-VAVE Ecosystem:** Many other M-VAVE audio products (MIDI foot controllers, audio interfaces, and digital pedals) use the same JieLi AC791N / AC69xx processor platform and share similar OTA firmware architectures. Notably, the **M-VAVE SMK-37 Pro** keyboard controller uses the identical AC791N (WL82) SoC, second-stage bootloader, update loader, and chip key, making FM-1 custom firmwares portable to it via board HAL adaptors (see [fm1-to-smk37](https://github.com/genkigenki/fm1-to-smk37) and [Snoop37](https://github.com/genkigenki/Snoop37)). Note: SMK-37 Pro flash contains unique factory key/pad calibration (`0xC1000` USRTRIM `trimdat`) that must never be overwritten.
 
 ### 1.2. Hardware PCB Characteristics & Recovery Vector
 * **No Debug Ports / Jumpers:** The M-VAVE FM1 PCB contains **no exposed debug headers** (JTAG, SWD, or UART debug pads).
