@@ -528,8 +528,9 @@ Useful open-source tools, documentation, and SDK repositories:
  8. **[FM-1 Pulses by mene311](https://github.com/mene311/fm1-pulses) ([Web App](https://mene311.github.io/fm1-pulses/)):**
     Browser-based generative MIDI sequencer and pattern generator for the M-VAVE FM-1 (Web MIDI API / PWA, runs on desktop/mobile). Generates reproducible 64-step banks with parameter drift and can freeze them directly into the hardware pattern slots over SysEx (supported on Baud Girl / FM-1+VA firmware), or broadcast live MIDI notes in real time.
 
- 9. **[sloop-fm1-go by jahlib](https://github.com/jahlib/sloop-fm1-go):**
-    Android-native touchscreen companion and project editor for SLOOP custom firmware.
+ 9. **[sloop-fm1-go by jahlib](https://github.com/jahlib/sloop-fm1-go) ([Releases / APK](https://github.com/jahlib/sloop-fm1-go/releases)):**
+    * **License:** Open Source (GPL-3.0).
+    * Android-native touchscreen companion and project editor for SLOOP custom firmware (based on the SLOOP web editor). Allows editing tracks, synth parameters, samples, and sequence patterns directly from an Android smartphone or tablet over USB-MIDI.
 
 10. **[SLOOP 8-Track Web Workstation by smhulme](https://github.com/smhulme/sloop-web-8trk):**
     Hybrid production environment driving SLOOP's four hardware tracks over WebMIDI while adding four synchronized browser audio tracks alongside them.
