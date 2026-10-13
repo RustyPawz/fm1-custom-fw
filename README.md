@@ -345,12 +345,12 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **SLOOP 2.4 Project Compatibility & Web Editor:** Full project interchangeability and web-based parameters librarian.
     * **Installation:** Build and flash via CLI/Docker toolchain.
 
- 2. **[Dinghy by Sven Trogus (zvenson)](https://github.com/zvenson/dinghy):**
+ 3. **[Dinghy by Sven Trogus (zvenson)](https://github.com/zvenson/dinghy):**
     * **License:** Open Source (GPL-3.0-only).
     * **Concept:** Minimal, clean firmware skeleton for custom developers: 4-voice sine wave synthesizer on top of working display, audio DMA, and button input drivers.
     * **Installation:** Compile and flash via Makefile/CLI.
 
- 3. **[fm1-to-smk37 by genkigenki](https://github.com/genkigenki/fm1-to-smk37) & [Snoop37](https://github.com/genkigenki/Snoop37):**
+ 4. **[fm1-to-smk37 by genkigenki](https://github.com/genkigenki/fm1-to-smk37) & [Snoop37](https://github.com/genkigenki/Snoop37):**
     * **License:** Open Source (GPL-3.0 for Snoop37 firmware port; CC BY-NC 4.0 for hardware guide & documentation).
     * **Concept:** Port kit and comprehensive board-adaptation layer to run FM-1 custom firmwares (SLOOP, Felucca, and forks) on the **M-Vave SMK-37 Pro** keyboard controller.
     * **Hardware Relationship:** Both devices share the identical **JieLi AC791N (WL82)** processor, second-stage bootloader, update loader, and chip key, differing primarily in panel wiring (keyboard matrix, 16 RGB pads, 8 encoders, 4 faders, pitch/mod wheels, display pins, and flash partition map).
@@ -361,7 +361,7 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **Flash Safety Guide:** Critical documentation on preserving the unique 1 MiB SPI flash regions (`0xC1000` USRTRIM factory key/pad calibration `trimdat`, `0xC0000` BTIF pairing data, `0xFF000` chip key/MAC) to prevent irreversible loss of hardware calibration.
     * **Installation & Usage:** Source patch series and Makefile build workflow.
 
- 4. **[Modular-1 by morgulbrut](https://wiggismodular.github.io/Modular-1/) ([Webapp & Flasher](https://wiggismodular.github.io/Modular-1/)):**
+ 5. **[Modular-1 by morgulbrut](https://wiggismodular.github.io/Modular-1/) ([Webapp & Flasher](https://wiggismodular.github.io/Modular-1/)):**
     * **License:** Open Source (GPL-3.0). Built using Felucca HAL and tooling.
     * **Concept:** Nord Modular-inspired modular synthesizer engine and visual web patch editor for the FM-1.
     * **Features:**
