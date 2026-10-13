@@ -32,14 +32,18 @@ Technical reference and reverse-engineering findings for the **M-VAVE FM1** synt
   * **Standard User-Mode Flashing:** MIDI SysEx over USB is the official, application-level firmware update channel available on the device.
   * **Software-Bricked Recovery over Plain USB (Mask-ROM `WL82 UBOOT1.00` mode):**
     * When a firmware flash is corrupt, incomplete, or fails to boot, the JieLi AC791N mask-ROM automatically drops into its built-in USB recovery mass-storage mode: **`WL82 UBOOT1.00 USB Device`** (`VID: 0x4C4A`, `PID: 0x8057`, SCSI / Mass Storage interface).
-    * In this state, **no extra hardware or case opening is required**: a standard USB data cable and [`jl-uboot-tool`](https://github.com/kagaimiq/jl-uboot-tool) on Windows/Linux are sufficient to communicate directly with the SPI flash via SCSI pass-through.
+    * In this state, **no extra hardware or case opening is required**: a standard USB data cable and [`jl-uboot-tool`](https://github.com/kagaimiq/jl-uboot-tool) on Windows/Linux (or automated via [`MvaveFM1Unbricker`](https://github.com/Quixotic7/MvaveFM1Unbricker)) are sufficient to communicate directly with the SPI flash via SCSI pass-through.
+    * **Triggering ROM Boot without Hardware Dongles ([MvaveFM1Unbricker Troubleshooting](https://github.com/Quixotic7/MvaveFM1Unbricker#the-fm-1-does-not-show-up-as-wl82-uboot100-at-all)):**
+      * **Two-minute Watchdog Wait:** Felucca-family firmwares arm a watchdog and boot-loop guard; leaving a crashing unit on for two minutes lets the guard automatically enter ROM boot after two consecutive reset loops.
+      * **Update-Mode Key Hold:** Switch off, hold **OCT- and OCT+** simultaneously, switch on, and keep holding for 10 seconds. If the firmware boots enough to reach input polling, this forces update mode.
+      * **Three Quick Restarts:** Turn on for 10 s, off; on for 10 s, off; on. If each boot crashes, the third consecutive failure forces the processor into ROM boot.
     * **Crucial Flash Addressing Rules:**
       * **Bootloader / Head (`0x00000000` – `0x00003FFF`):** NEVER overwrite or erase this 16 KB region. It holds the partition header and boot vector.
       * **App Code Area (`0x00004000` – `0x00092FFF`):** Extracted application binaries (e.g., from `FM-1.fwsc` via [`fm1_extract_app.py`](https://gist.github.com/Acrawf1/ae2b9930b49231db397568cfc2abc2a8)) MUST be written starting at offset **`0x4000`**, never at `0x0`.
       * **Felucca 0.9 → 1.0.x Upgrade Brick Fix:** Upgrading from Felucca 0.9-beta to 1.0.x can soft-brick due to incompatible legacy preset structures. Erasing `0x97000 0x8000` and `0xFC000 0x2000` via `jl-uboot-tool` resolves this issue.
     * Full step-by-step unbricking guide: [Reddit: Unbricking a soft-bricked FM-1 (black screen / "WL82 UBOOT1.00") over plain USB](https://www.reddit.com/r/MVaveFM1/comments/1wz48t7/guide_unbricking_a_softbricked_fm1_black_screen/).
   * **Hardware Recovery Vector (Forcing Mask-ROM via USB_KEY Dongle):**
-    * If the processor hangs without falling into `WL82 UBOOT1.00` automatically, the mask-ROM download mode can be forced via an external RP2040 dongle ([FM-1 Transporter](https://github.com/kurogedelic/FM-1-transporter) / [mvave-fm1-open-firmware](https://github.com/ip2k/mvave-fm1-open-firmware) / [MvaveFM1Unbricker](https://github.com/Quixotic7/MvaveFM1Unbricker)).
+    * If the processor hangs without falling into `WL82 UBOOT1.00` automatically (e.g., due to an interrupted write mid-flash from a depleted battery), the mask-ROM download mode can be forced via an external RP2040 dongle ([FM-1 Transporter](https://github.com/kurogedelic/FM-1-transporter) / [mvave-fm1-open-firmware](https://github.com/ip2k/mvave-fm1-open-firmware) / [MvaveFM1Unbricker](https://github.com/Quixotic7/MvaveFM1Unbricker)).
     * The dongle pulses the JieLi hardware boot key (`0x16EF` at ~50 kHz) over USB D+/D- lines during power-up, allowing SPI flash recovery and unbricking through the external USB-C port without opening the enclosure.
 
 ### 1.3. Device Disassembly & Case Opening Instructions

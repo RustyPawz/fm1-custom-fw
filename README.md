@@ -455,8 +455,8 @@ Useful open-source tools, documentation, and SDK repositories:
  3. **[FM-1 Transporter by Leo Kuroshita (kurogedelic)](https://github.com/kurogedelic/FM-1-transporter):**
     Hardware RP2040-based USB dongle firmware that pulses the JieLi `USB_KEY` pattern (`0x16EF`) to force unresponsive FM-1 devices into mask-ROM USB download mode for emergency flash recovery.
 
- 4. **[MvaveFM1Unbricker by Quixotic7](https://github.com/Quixotic7/MvaveFM1Unbricker):**
-    Unbricking documentation, troubleshooting guides, and RP2040 dongle reference instructions for M-VAVE FM-1 recovery.
+ 4. **[MvaveFM1Unbricker by Quixotic7](https://github.com/Quixotic7/MvaveFM1Unbricker) ([Troubleshooting Guide](https://github.com/Quixotic7/MvaveFM1Unbricker#troubleshooting)):**
+    Python-based unbricking toolkit and comprehensive troubleshooting reference for M-VAVE FM-1 recovery. Automates safe backup and restoring via `jl-uboot-tool` (strictly protects the `< 0x4000` boot head, prevents `erasechip`, and verifies flash SHA-256), while providing procedures for forcing unresponsive units into ROM boot (watchdog timeouts, OCT-/OCT+ holds, quick power cycles) and RP2040 Transporter hardware recovery.
 
  5. **[flipper-fm1-recovery by merthsoft](https://github.com/merthsoft/flipper-fm1-recovery):**
     Firmware flasher and unbricker utility utilizing a **Flipper Zero** to pulse the hardware ROM recovery sequence on the FM-1's USB data pins without requiring an RP2040 dongle or wiring.
