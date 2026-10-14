@@ -308,6 +308,18 @@ Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its 
     * **Features:** Deep 64-slice sample mapping across pads/keys, auto-transient detection, slice reversal, pitch pitching per slice, and integrated FM synth accompaniment.
     * **Installation:** Browser WebMIDI installer via USB directly from the web project page.
 
+13. **[winampFM by hericdk](https://github.com/hericdk/winampFM) ([Website & 3D Web Simulator](https://hericdk.github.io/winampFM/)):**
+    * **License:** Open Source (GPL-3.0-only). Built upon SLOOP 2.6 (isod89) and Felucca (Leo Kuroshita / Hügelton Instruments).
+    * **Concept:** Winamp 2.x-inspired performance synthesizer & groovebox firmware turning the FM-1 interface into classic Winamp windows (main player, equalizer sliders, playlist, and pixel-art visualizers).
+    * **Features:**
+      * **Winamp 2.x Main Screen & Playlist:** Main home screen styled as Winamp 2.x with time counter, audio spectrum analyzer, BPM, sound marquee, and track buttons. Sound presets browse like a Winamp playlist.
+      * **Reel-to-Reel Tape Looping:** Tape deck recording screen with live input VU meter, tape counter, note display, and pass counts. Arming REC starts recording; pressing REC again calculates and locks the loop BPM automatically.
+      * **Equalizer Sliders FX & PARTY Mode:** Effects grouped into Winamp equalizer slider bands (SEND, SPACE, MASTER, PARTY, TRACK) controlled via the 4 knobs. Dedicated PARTY performance staging (SOLO, DUEL, TRIAD, AUTOTURN stage cycling, KEEP lead holding, YOYO cross-track stepping).
+      * **28 Full-Screen Pixel-Art Visualizers:** Pressing HOME twice unlocks 28 reactive full-screen visualizers responding to played notes, loops, and knobs (Milkdrop-style oscilloscope, spectrum bars, starfield shooter, 80s neon night drive, polygonal chords, doomscrolling feed, dancing raccoon, and lofi study).
+      * **Expanded Sound Library & Tapes Carousel:** 157 total sounds (including 153 SLOOP 2.6 sounds plus Brazilian acoustic instruments: Cavaquinho, Berimbau, Agogô Bell, Sanfona, and Brasil drum kits), with a PS1-style 3D cassette tape preview carousel.
+      * **Web 3D Simulator & Recorder:** Includes an interactive in-browser 3D model simulator running the real firmware via WebAssembly with audio playback and a Win98-style screen & sound recorder widget.
+    * **Installation:** One-click WebMIDI installer via USB directly on the website or flashing `release/winampfm-0.12.fwsc`.
+
 #### 1.1.3. FoMni Family (Strumplate & Chord Instruments)
 
 Suzuki Omnichord and Japanese Shigin accompaniment instruments featuring strumplate and chord-shaping workflows:
