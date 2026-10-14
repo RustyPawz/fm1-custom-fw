@@ -158,15 +158,17 @@ Firmwares built upon or directly forked from the foundational open-source multi-
       * **FX Chain & 16-Step Sequencer:** Integrated arpeggiator, 16-step sequencer with ties/slides per program, modulation FX (chorus, flanger, ensemble, phaser, metal distortion), tempo-synced delay, and reverb with flexible FX routing orders.
     * **Installation:** Build and flash firmware via CLI toolchain (`tools/fm1_install.py`).
 
-19. **[FANTASMA](https://claude.ai/artifact/RLDaXqXDuzzfyJZ8ibS5Gk):**
+19. **[FANTASMA / Pelucco by Gadlele](https://github.com/Gadlele/Pelucco) ([Web Emulator / Artifact](https://claude.ai/artifact/RLDaXqXDuzzfyJZ8ibS5Gk)):**
     * **License:** Open Source (GPL-3.0). Built on Felucca by Leo Kuroshita / Hügelton Instruments.
     * **Concept:** Generative ambient and drone synthesizer firmware for the FM-1 with dedicated chord-strum and generative "haunted" modes.
     * **Features:**
       * **"Haunted" Generative Ambient Engine:** Pressing `OCT+` on the fourth SEQ page triggers self-generating, evolving ambient music across three independent channels across randomized musical scales (major, minor, dorian, mixolydian, pentatonic, phrygian, lydian) even with the transport stopped; `OCT-` halts the generator.
+      * **BELL Generative Loops:** 4 drifting loops of 13/17/23/29 steps (`DENS`, `EVOLVE`, `RANGE`, `SEED`) snapped to the scale on the BELL engine.
       * **Dedicated Ambient Role Split:** 4 channels configured for ambient roles: Pads (automatic chord generator), Lead (key-locked for live manual jamming over drones), FM Bells (generative chime echoes), and Continuous Noise (sea/wind textures).
       * **OMNI Strum Mode:** Omnichord-style performance mode where black keys trigger chords following the active root scale while white keys act as a harp strum plate.
+      * **USB Rescue Boot:** Built-in safe recovery mode (`OCT-` held on power-on or two crash loops in a row) launching a minimal updater screen reporting as `FM-1_000` to guarantee web flashing and recover without bricking.
       * **Custom Ambient UI & Reverb:** Expansive long-decay `AMBI` reverb engine, custom ghost splash screen, and high-visibility neon "ECTO" color theme.
-    * **Installation:** In-browser WebAssembly simulation and WebMIDI installer via Claude artifact / web environment.
+    * **Installation:** In-browser WebAssembly simulation and WebMIDI installer via Claude artifact, or build from the [Gadlele/Pelucco repository](https://github.com/Gadlele/Pelucco).
 
 #### 1.1.2. SLOOP Ecosystem (Groovebox Core & Derived Firmwares)
 
