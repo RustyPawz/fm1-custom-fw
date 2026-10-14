@@ -647,6 +647,14 @@ Useful open-source tools, documentation, and SDK repositories:
     * **License:** Open Source (MIT).
     * Natural language LLM / Agent skill integration for controlling the M-VAVE FM-1 (running Felucca firmware) over MIDI SysEx for tone design, multi-track arranging, and song playback.
 
+16. **[Oscuro Companion Protocol & File Bridge by kartun83](https://github.com/kartun83/oscuro-companion-protocol):**
+    * **License:** Open Source (Apache-2.0).
+    * **Concept:** High-speed phone ↔ hardware file bridge and companion communication service over USB (smartphone acts as USB host, device runs as USB peripheral).
+    * **Architecture & Features:**
+      * Native Android USB-Host app (Kotlin) paired with a lightweight RAM firmware payload (`usbfiles.c` + `usbven.c`) executed on the JieLi AC791N SoC.
+      * Fast bidirectional file listing, patch browsing, sample transfer, and remote UI state synchronization on 240 × 240 displays without requiring flash wear.
+      * Developed for M-VAVE SMK-37 (under the Oscuro project) and architecturally adaptable to the M-VAVE FM-1 given their shared AC791N SoC and USB stack. Includes desktop Python host mock (`pyusb`) and wire protocol documentation.
+
 ### 3.6. Developer Frameworks, UI Designers & Curated Collections
 
  1. **[MvaveFM1-Designer by Quixotic7](https://github.com/Quixotic7/MvaveFM1-Designer):**
