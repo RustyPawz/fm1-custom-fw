@@ -45,6 +45,7 @@ Technical reference and reverse-engineering findings for the **M-VAVE FM1** synt
   * **Hardware Recovery Vector (Forcing Mask-ROM via USB_KEY Dongle):**
     * If the processor hangs without falling into `WL82 UBOOT1.00` automatically (e.g., due to an interrupted write mid-flash from a depleted battery), the mask-ROM download mode can be forced via an external RP2040 dongle ([FM-1 Transporter](https://github.com/kurogedelic/FM-1-transporter) / [mvave-fm1-open-firmware](https://github.com/ip2k/mvave-fm1-open-firmware) / [MvaveFM1Unbricker](https://github.com/Quixotic7/MvaveFM1Unbricker)).
     * The dongle pulses the JieLi hardware boot key (`0x16EF` at ~50 kHz) over USB D+/D- lines during power-up, allowing SPI flash recovery and unbricking through the external USB-C port without opening the enclosure.
+    * A practical community wiring guide using a Seeed Studio XIAO RP2040 or Raspberry Pi Pico (Green to D6, White to D7, Black to GND; red disconnected) is documented on [Reddit: Unbricking after a hard brick using a RP2040 and the FM-1 Transporter](https://www.reddit.com/r/MVaveFM1/comments/1x5lifu/mvave_fm1_unbricking_after_a_hard_brick_using_a/).
 
 ### 1.3. Device Disassembly & Case Opening Instructions
 To open the physical enclosure of the M-VAVE FM1:
