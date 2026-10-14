@@ -2,6 +2,13 @@
 
 A curated directory and reference hub for the **M-VAVE FM1** synthesizer (powered by the **JieLi AC791N** processor) — gathering community custom firmwares, documentation, tools, MIDI SysEx protocol details, and the `M-UPGRADE-FM1.app` (macOS) updater.
 
+> [!NOTE]
+> **Device Compatibility Notice:**  
+> This repository strictly curates custom firmwares and tools specifically targeted at the **M-VAVE FM-1** synthesizer.  
+> If you are looking for custom firmwares, ports, and tools for the **M-VAVE SMK-37 / SMK-37 Pro** keyboard controller, visit:
+> * **[M-VAVE SMK-37 Custom Firmware Hub](https://genkigenki.github.io/smk37/)**
+> * **[fm1-to-smk37 Port Kit by genkigenki](https://github.com/genkigenki/fm1-to-smk37)**
+
 ---
 
 ## 1. Custom & Alternative Firmwares
@@ -393,9 +400,9 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **Concept:** Minimal, clean firmware skeleton for custom developers: 4-voice sine wave synthesizer on top of working display, audio DMA, and button input drivers.
     * **Installation:** Compile and flash via Makefile/CLI.
 
- 4. **[fm1-to-smk37 by genkigenki](https://github.com/genkigenki/fm1-to-smk37) & [Snoop37](https://github.com/genkigenki/Snoop37):**
+ 4. **[fm1-to-smk37 by genkigenki](https://github.com/genkigenki/fm1-to-smk37)** & **[Snoop37](https://github.com/genkigenki/Snoop37)** ([SMK-37 Firmware Hub](https://genkigenki.github.io/smk37/)):
     * **License:** Open Source (GPL-3.0 for Snoop37 firmware port; CC BY-NC 4.0 for hardware guide & documentation).
-    * **Concept:** Port kit and comprehensive board-adaptation layer to run FM-1 custom firmwares (SLOOP, Felucca, and forks) on the **M-Vave SMK-37 Pro** keyboard controller.
+    * **Concept:** Port kit, web firmware hub, and comprehensive board-adaptation layer to run FM-1 custom firmwares (SLOOP, Felucca, and forks) on the **M-Vave SMK-37 Pro** keyboard controller.
     * **Hardware Relationship:** Both devices share the identical **JieLi AC791N (WL82)** processor, second-stage bootloader, update loader, and chip key, differing primarily in panel wiring (keyboard matrix, 16 RGB pads, 8 encoders, 4 faders, pitch/mod wheels, display pins, and flash partition map).
     * **Features:**
       * **Board Port Patch Series (`smk37-board`):** Modular git patch series implementing the input HAL, display, RGB pad LEDs, wheels, flash boundaries, and UI controls mapping.
