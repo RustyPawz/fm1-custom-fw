@@ -14,11 +14,12 @@ A curated directory and reference hub for the **M-VAVE FM1** synthesizer (powere
 >   * **Features:** Board Port Patch Series (`smk37-board`), Snoop37 reference port of SLOOP 2.5 on SMK-37 Pro, porting compatibility matrix, and critical flash safety documentation on preserving unique SPI flash regions (`0xC1000` USRTRIM factory calibration `trimdat`, `0xC0000` BTIF, `0xFF000` chip key/MAC).
 
 > [!IMPORTANT]
-> **Official Open Source Firmware & SDK Released by M-VAVE:**  
-> In October 2026, M-VAVE officially open-sourced their FM-1 firmware and development toolkit under GPL-3.0:
-> * **Repository:** **[m-vave/fm1_open](https://github.com/m-vave/fm1_open)** (8 tracks, 8 sample slots, 16 demo FX, hardware C drivers, and WebAssembly simulator).
-> * **Official Web Workbench:** **[open.m-vave.com/fm1-workbench](https://open.m-vave.com/fm1-workbench)**.
-> * **Announcement & Discussion:** **[M-VAVE Official Forum Topic #4](https://forum.m-vave.com/topic/4)**.
+> **Official Open Source Firmware & SDK (M-VAVE):**  
+> In October 2026, M-VAVE briefly open-sourced their FM-1 firmware and development toolkit under GPL-3.0.  
+> **Status Notice:** As of now, the official GitHub repository (`m-vave/fm1_open`), the online web workbench (`open.m-vave.com`), and the announcement threads on the official forum have been taken down / deleted by the manufacturer:
+> * **Repository (Offline / Removed):** **[m-vave/fm1_open](https://github.com/m-vave/fm1_open)** (8 tracks, 8 sample slots, 16 demo FX, hardware C drivers, and WebAssembly simulator).
+> * **Official Web Workbench (Offline / Removed):** **[open.m-vave.com/fm1-workbench](https://open.m-vave.com/fm1-workbench)**.
+> * **Announcement & Discussion (Removed):** **[M-VAVE Official Forum Topic #4](https://forum.m-vave.com/topic/4)**.
 
 ---
 
@@ -452,6 +453,7 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
 17. **[M-VAVE FM1 Open Firmware (m-vave/fm1_open)](https://github.com/m-vave/fm1_open) ([Releases / V10](https://github.com/m-vave/fm1_open/releases) | [Official Workbench](https://open.m-vave.com/fm1-workbench)):**
     * **License:** Open Source (GPL-3.0-only for application code; includes vendor binary libraries and third-party notices).
     * **Significance:** Official open-source release of the factory FM-1 firmware and SDK directly from the manufacturer (M-VAVE).
+    * **Status Notice:** As of now, the upstream GitHub repository, the web workbench (`open.m-vave.com`), and related forum threads have been removed / taken offline by M-VAVE.
     * **Architecture & Features:**
       * **8 Tracks & 8 Sample Slots:** Full multitrack groovebox architecture with 8 audio/synth tracks, 8 sample slots, and 16 built-in demo presets/FX.
       * **Board Drivers & Audio HAL:** Direct hardware C source code for panel controls, 240 × 240 display, encoders, and audio engine rendering (`app/board/`, `app/audio_output.c`) supporting USB/Bluetooth mixing and USB recording.
@@ -808,7 +810,7 @@ Articles and press coverage detailing community custom firmwares and feature ove
 
 Where the M-VAVE FM-1 community discusses reverse engineering, troubleshooting, and new releases:
 
-* **[M-VAVE Official Forum (Topic #4: FM1 Open Firmware Announcement)](https://forum.m-vave.com/topic/4):** The official manufacturer forum and announcement hub for the open-source firmware release and workbench.
+* **[M-VAVE Official Forum (Topic #4: FM1 Open Firmware Announcement)](https://forum.m-vave.com/topic/4):** The official manufacturer forum and announcement hub (announcement topic #4 was subsequently removed by manufacturer).
 * **[Reddit: r/MVaveFM1](https://www.reddit.com/r/MVaveFM1/):** The primary community hub for custom firmware releases, unbricking help, and hardware hacks.
 * **[KVR Audio: M-VAVE FM-1 Thread](https://www.kvraudio.com/forum/viewtopic.php?t=632127):** Technical thread where factory preset recovery and early tools were first shared.
 * **[Hacker News: FM-1 Reverse-Engineering Discussion](https://news.ycombinator.com/item?id=49994065):** Discussion on the FM-1-RE architecture and JieLi SoC discoveries.
