@@ -127,6 +127,37 @@ Firmwares built upon or directly forked from the foundational open-source multi-
       * **Verb-Based Interface:** Action buttons perform timed organic changes — FX (sinks depth), SCL (cascades higher intervals), ENV (swells chords), LFO (wobbles filter/pitch), EDIT (lifts brightness/sharpness), GLO (scrambles phrases), and PLAY (toggles DRIFT value wandering).
     * **Installation:** Flash prebuilt `maku-X.Y.fwsc` via `tools/fm1_install.py` or browser WebMIDI updaters.
 
+16. **[Polly by Charles Vestal](https://github.com/charlesvestal/fm1-polly) ([Web Installer & Emulator](https://charlesvestal.github.io/fm1-polly/)):**
+    * **License:** Open Source (GPL-3.0). Built on Felucca by Leo Kuroshita / Hügelton Instruments.
+    * **Concept:** Yamaha QY70-inspired 8-track pocket accompaniment arranger and auto-accompaniment workstation for the FM-1.
+    * **Features:**
+      * **8-Track Arranger Architecture:** Dedicated parts for Drums, Percussion, Bass, and 5 Chord accompaniment tracks powered by the Sonivox EAS General MIDI sound engine.
+      * **Interactive Chord Recognition & Follower:** Play chord shapes on the keyboard (or via MIDI IN) to drive realistic live auto-accompaniment transformations.
+      * **Style Engine & QY70 Import:** Built-in accompaniment styles with variation switching, fill-ins, intro/outro, and direct import compatibility for Yamaha QY-format style patterns.
+      * **In-Browser WebAssembly Simulator:** Full hardware simulation with screen rendering and audio playback running directly in the browser at [charlesvestal.github.io/fm1-polly](https://charlesvestal.github.io/fm1-polly/).
+    * **Installation:** Browser WebMIDI installer via USB directly from the project page.
+
+17. **[TRIBE (fm1-tribe) by Alexandre Piel (apiel)](https://github.com/apiel/fm1-tribe) ([Site & Web Installer](https://apiel.github.io/fm1-tribe/)):**
+    * **License:** Open Source (GPL-3.0-only). Fork of X0X (Charles Vestal) and built on Felucca (Leo Kuroshita / Hügelton Instruments) with kicks and scatter effects from zicBox.
+    * **Concept:** Ten-track groovebox firmware where any synthesis or drum engine plays on any track.
+    * **Features:**
+      * **10 Tracks & 25 Engines:** Freely assignable tracks running two dedicated kick models (`KICK W`, `KICK P`), Roland TR-909 and TR-808 drum voice models (9W9 / 8W8 ports), and TB-303 bassline synthesis (schwung-303 port).
+      * **16 Clips per Track:** Launch clips at pattern boundaries or instantly; supports 16, 32, or 64 steps, 6 playback clock rates, 4 playback directions, and shuffle/swing.
+      * **Live Performance Scatter FX:** Momentary performance effects triggered directly from keys while playing (beat loops, reverse, rhythmic gating, bitcrush, distortion, ring modulation, and resonant filters).
+      * **Dual Master FX & Compressor:** Reverb, delay, drive, distortion, fuzz, wavefolder, bitcrusher, decimator, or ring modulator fed by per-track sends, plus an always-on master compressor.
+      * **In-Browser Emulator:** Real firmware compiled to WebAssembly running directly in the browser at [apiel.github.io/fm1-tribe](https://apiel.github.io/fm1-tribe/#emulator).
+    * **Installation:** Browser WebMIDI installer via USB directly from the project page.
+
+18. **[Golana by Gadlele](https://github.com/Gadlele/Golana):**
+    * **License:** Open Source (GPL-3.0). Built on Felucca by Leo Kuroshita / Hügelton Instruments.
+    * **Concept:** Korg microKORG-inspired analog-modeling synthesizer firmware for the FM-1 featuring the classic MATRIX editing workflow.
+    * **Features:**
+      * **MicroKORG Synth Architecture:** 4-voice polyphonic / unison / mono / legato engine with 2 oscillators per voice (saw, pulse with PWM, tri with wavefold, sine with cross-mod from OSC 2, noise, and ring modulation), dual LFOs, and 4 assignable virtual modulation patch routings.
+      * **Resonant Multi-Mode Filter:** 24 dB/oct LPF, 12 dB/oct LPF, BPF, HPF, and an aggressive screaming MS-20-style resonant low-pass filter model.
+      * **Matrix Interface & Waveform Drawing:** On-device 240 × 240 graphics rendering real-time waveforms for OSC 1/2, dynamic filter response curves, envelope graphs, and live LFO waveforms calculated directly from parameter values.
+      * **FX Chain & 16-Step Sequencer:** Integrated arpeggiator, 16-step sequencer with ties/slides per program, modulation FX (chorus, flanger, ensemble, phaser, metal distortion), tempo-synced delay, and reverb with flexible FX routing orders.
+    * **Installation:** Build and flash firmware via CLI toolchain (`tools/fm1_install.py`).
+
 #### 1.1.2. SLOOP Ecosystem (Groovebox Core & Derived Firmwares)
 
 Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its DX7/sampling expansion forks:
@@ -398,6 +429,16 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **License:** Open Source (GPL-3.0).
     * **Concept:** Experimental Sharp X68000 MDX/PDX karaoke music player running a software YM2151 FM chip emulation allowing interactive part muting and live keyboard accompaniment.
     * **Installation:** Research project / computer emulator testing.
+
+ 5. **[GameDude by Chance The Maker](https://github.com/ChanceTheMaker/gamedude-fm1-smk) ([Web Simulator & Compiler](https://chancethemaker.github.io/gamedude-fm1-smk/)):**
+    * **License:** Open Source (GPL-3.0). Built on Peanut-GB and Felucca.
+    * **Concept:** Nintendo Game Boy emulator, browser-based ROM-to-firmware compiler, and interactive web simulator for the M-VAVE FM-1 and SMK-37 controller hardware.
+    * **Features:**
+      * **Peanut-GB Core Port:** Optimized Game Boy emulator core running at smooth framerates on the JieLi AC791N RISC CPU.
+      * **Web ROM Compiler & Simulator:** Drag-and-drop any Game Boy `.gb` ROM into the browser to test it immediately in the WebAssembly simulator and generate a flashable `.fwsc` firmware image in seconds.
+      * **Ergonomic Synth-Key Layout:** Physical synth keys mapped intuitively to D-pad (Up/Down/Left/Right), A/B buttons, and Start/Select, with knob controls for volume, display brightness, and color palette cycling (classic DMG pea-soup green, pocket grayscale, neon cyberpunk).
+      * **Dual Device Support:** Supports both the FM-1 synthesizer and SMK-37 keyboard controller hardware.
+    * **Installation:** Browser WebMIDI installer via USB directly from the web compiler page.
 
 ### 1.4. Stock Firmware Patchers & Binary Mods
 
