@@ -421,6 +421,11 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **Generative Arpeggiator:** Complex multi-page arpeggiator engine featuring dedicated melody controls (scale, root, speed), Euclidean rhythm sequencing (pulses, rotation, rate), and chaotic generative probability/octave spreading.
     * **Installation:** Browser WebMIDI installer via USB directly under the webapp's Flash tab.
 
+ 6. **[Hexagon Console](https://www.reddit.com/r/MVaveFM1/comments/1x5qq7z/coming_soon_hexagon_console/):**
+    * **Status:** Upcoming / Teased announcement.
+    * **Concept:** Console-style musical environment and custom firmware architecture for the M-VAVE FM-1.
+    * **Details:** Teased within the r/MVaveFM1 community ([Coming soon: Hexagon Console](https://www.reddit.com/r/MVaveFM1/comments/1x5qq7z/coming_soon_hexagon_console/)), introducing a modular hexagonal UI paradigm and performance console interface tailored for the FM-1 hardware.
+
 ### 1.3. Gaming, Emulators & Non-Audio Ports (Games & Experiments)
 
  1. **[FM-1 Doom by Sven Trogus (zvenson)](https://github.com/zvenson/fm1doom) ([Web Installer](https://doom.deadlockinteractive.com/) | [Alt Web Installer](https://dx7.designburgapps.com/doom/)):**
