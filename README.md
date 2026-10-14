@@ -158,6 +158,16 @@ Firmwares built upon or directly forked from the foundational open-source multi-
       * **FX Chain & 16-Step Sequencer:** Integrated arpeggiator, 16-step sequencer with ties/slides per program, modulation FX (chorus, flanger, ensemble, phaser, metal distortion), tempo-synced delay, and reverb with flexible FX routing orders.
     * **Installation:** Build and flash firmware via CLI toolchain (`tools/fm1_install.py`).
 
+19. **[FANTASMA](https://claude.ai/artifact/RLDaXqXDuzzfyJZ8ibS5Gk):**
+    * **License:** Open Source (GPL-3.0). Built on Felucca by Leo Kuroshita / Hügelton Instruments.
+    * **Concept:** Generative ambient and drone synthesizer firmware for the FM-1 with dedicated chord-strum and generative "haunted" modes.
+    * **Features:**
+      * **"Haunted" Generative Ambient Engine:** Pressing `OCT+` on the fourth SEQ page triggers self-generating, evolving ambient music across three independent channels across randomized musical scales (major, minor, dorian, mixolydian, pentatonic, phrygian, lydian) even with the transport stopped; `OCT-` halts the generator.
+      * **Dedicated Ambient Role Split:** 4 channels configured for ambient roles: Pads (automatic chord generator), Lead (key-locked for live manual jamming over drones), FM Bells (generative chime echoes), and Continuous Noise (sea/wind textures).
+      * **OMNI Strum Mode:** Omnichord-style performance mode where black keys trigger chords following the active root scale while white keys act as a harp strum plate.
+      * **Custom Ambient UI & Reverb:** Expansive long-decay `AMBI` reverb engine, custom ghost splash screen, and high-visibility neon "ECTO" color theme.
+    * **Installation:** In-browser WebAssembly simulation and WebMIDI installer via Claude artifact / web environment.
+
 #### 1.1.2. SLOOP Ecosystem (Groovebox Core & Derived Firmwares)
 
 Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its DX7/sampling expansion forks:
