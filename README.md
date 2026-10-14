@@ -3,12 +3,15 @@
 A curated directory and reference hub for the **M-VAVE FM1** synthesizer (powered by the **JieLi AC791N** processor) — gathering community custom firmwares, documentation, tools, MIDI SysEx protocol details, and the `M-UPGRADE-FM1.app` (macOS) updater.
 
 > [!NOTE]
-> **Device Compatibility Notice:**  
+> **Device Compatibility Notice & SMK-37 Resources:**  
 > This repository strictly curates custom firmwares and tools specifically targeted at the **M-VAVE FM-1** synthesizer.  
-> If you are looking for custom firmwares, ports, community discussions, and tools for the **M-VAVE SMK-37 / SMK-37 Pro** keyboard controller, visit:
-> * **[r/MvaveSmk Subreddit](https://www.reddit.com/r/MvaveSmk/)**
-> * **[M-VAVE SMK-37 Custom Firmware Hub](https://genkigenki.github.io/smk37/)**
-> * **[fm1-to-smk37 Port Kit by genkigenki](https://github.com/genkigenki/fm1-to-smk37)**
+> If you are looking for custom firmwares, ports, community discussions, and tools for the **M-VAVE SMK-37 / SMK-37 Pro** keyboard controller:
+> * **[r/MvaveSmk Subreddit](https://www.reddit.com/r/MvaveSmk/):** Community hub for SMK-37 discussion and mods.
+> * **[M-VAVE SMK-37 Custom Firmware Hub](https://genkigenki.github.io/smk37/):** Firmware hub and guides.
+> * **[fm1-to-smk37 Port Kit by genkigenki](https://github.com/genkigenki/fm1-to-smk37)** & **[Snoop37](https://github.com/genkigenki/Snoop37)**:
+>   * **License:** Open Source (GPL-3.0 for Snoop37 firmware port; CC BY-NC 4.0 for hardware guide & documentation).
+>   * **Hardware Relationship:** Both devices share the identical **JieLi AC791N (WL82)** processor, second-stage bootloader, update loader, and chip key, differing primarily in panel wiring (keyboard matrix, 16 RGB pads, 8 encoders, 4 faders, pitch/mod wheels, display pins, and flash partition map).
+>   * **Features:** Board Port Patch Series (`smk37-board`), Snoop37 reference port of SLOOP 2.5 on SMK-37 Pro, porting compatibility matrix, and critical flash safety documentation on preserving unique SPI flash regions (`0xC1000` USRTRIM factory calibration `trimdat`, `0xC0000` BTIF, `0xFF000` chip key/MAC).
 
 > [!IMPORTANT]
 > **Official Open Source Firmware & SDK Released by M-VAVE:**  
@@ -446,6 +449,15 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **On-Device Graphical Editing:** Real-time filter frequency curve rendering and envelope visualization on the 240 × 240 display.
     * **Installation:** Browser WebMIDI installer via USB directly from the project homepage.
 
+17. **[M-VAVE FM1 Open Firmware (m-vave/fm1_open)](https://github.com/m-vave/fm1_open) ([Releases / V10](https://github.com/m-vave/fm1_open/releases) | [Official Workbench](https://open.m-vave.com/fm1-workbench)):**
+    * **License:** Open Source (GPL-3.0-only for application code; includes vendor binary libraries and third-party notices).
+    * **Significance:** Official open-source release of the factory FM-1 firmware and SDK directly from the manufacturer (M-VAVE).
+    * **Architecture & Features:**
+      * **8 Tracks & 8 Sample Slots:** Full multitrack groovebox architecture with 8 audio/synth tracks, 8 sample slots, and 16 built-in demo presets/FX.
+      * **Board Drivers & Audio HAL:** Direct hardware C source code for panel controls, 240 × 240 display, encoders, and audio engine rendering (`app/board/`, `app/audio_output.c`) supporting USB/Bluetooth mixing and USB recording.
+      * **Complete Toolchain & WebAssembly Workbench:** Complete build scripts (`build.bat`) supporting both native firmware compilation via JieLi PI32v2 Clang 4.0.1 (`FM1_OFFICIAL_OPEN.fwsc`) and WebAssembly compilation via WASI SDK 27 for in-browser workbench simulation.
+    * **Installation:** Official web workbench flasher via USB or building `.fwsc` from source.
+
 ### 1.2. Modular Firmware Platforms & Builders
 
  1. **[fm1-rocket-os by cmlarsen](https://github.com/cmlarsen/fm1-rocket-os):**
@@ -468,18 +480,7 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **Concept:** Minimal, clean firmware skeleton for custom developers: 4-voice sine wave synthesizer on top of working display, audio DMA, and button input drivers.
     * **Installation:** Compile and flash via Makefile/CLI.
 
- 4. **[fm1-to-smk37 by genkigenki](https://github.com/genkigenki/fm1-to-smk37)** & **[Snoop37](https://github.com/genkigenki/Snoop37)** ([SMK-37 Firmware Hub](https://genkigenki.github.io/smk37/) | [r/MvaveSmk](https://www.reddit.com/r/MvaveSmk/)):
-    * **License:** Open Source (GPL-3.0 for Snoop37 firmware port; CC BY-NC 4.0 for hardware guide & documentation).
-    * **Concept:** Port kit, web firmware hub, and comprehensive board-adaptation layer to run FM-1 custom firmwares (SLOOP, Felucca, and forks) on the **M-Vave SMK-37 Pro** keyboard controller (discussed on [r/MvaveSmk](https://www.reddit.com/r/MvaveSmk/)).
-    * **Hardware Relationship:** Both devices share the identical **JieLi AC791N (WL82)** processor, second-stage bootloader, update loader, and chip key, differing primarily in panel wiring (keyboard matrix, 16 RGB pads, 8 encoders, 4 faders, pitch/mod wheels, display pins, and flash partition map).
-    * **Features:**
-      * **Board Port Patch Series (`smk37-board`):** Modular git patch series implementing the input HAL, display, RGB pad LEDs, wheels, flash boundaries, and UI controls mapping.
-      * **Snoop37 Reference Implementation:** Complete working port of SLOOP 2.5 on SMK-37 Pro with custom intro, jingle, and layout adaptations.
-      * **Porting Compatibility Matrix:** Low effort for SLOOP/sloopDX (`git am -3`), medium effort for Felucca/X0X/FoMni-1/Melodee.
-      * **Flash Safety Guide:** Critical documentation on preserving the unique 1 MiB SPI flash regions (`0xC1000` USRTRIM factory key/pad calibration `trimdat`, `0xC0000` BTIF pairing data, `0xFF000` chip key/MAC) to prevent irreversible loss of hardware calibration.
-    * **Installation & Usage:** Source patch series and Makefile build workflow.
-
- 5. **[Modular-1 by morgulbrut](https://wiggismodular.github.io/Modular-1/) ([Webapp & Flasher](https://wiggismodular.github.io/Modular-1/)):**
+ 4. **[Modular-1 by morgulbrut](https://wiggismodular.github.io/Modular-1/) ([Webapp & Flasher](https://wiggismodular.github.io/Modular-1/)):**
     * **License:** Open Source (GPL-3.0). Built using Felucca HAL and tooling.
     * **Concept:** Nord Modular-inspired modular synthesizer engine and visual web patch editor for the FM-1.
     * **Features:**
@@ -488,7 +489,7 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **Generative Arpeggiator:** Complex multi-page arpeggiator engine featuring dedicated melody controls (scale, root, speed), Euclidean rhythm sequencing (pulses, rotation, rate), and chaotic generative probability/octave spreading.
     * **Installation:** Browser WebMIDI installer via USB directly under the webapp's Flash tab.
 
- 6. **[Hexagon Console](https://www.reddit.com/r/MVaveFM1/comments/1x5qq7z/coming_soon_hexagon_console/):**
+ 5. **[Hexagon Console](https://www.reddit.com/r/MVaveFM1/comments/1x5qq7z/coming_soon_hexagon_console/):**
     * **Status:** Upcoming / Teased announcement.
     * **Concept:** Console-style musical environment and custom firmware architecture for the M-VAVE FM-1.
     * **Details:** Teased within the r/MVaveFM1 community ([Coming soon: Hexagon Console](https://www.reddit.com/r/MVaveFM1/comments/1x5qq7z/coming_soon_hexagon_console/)), introducing a modular hexagonal UI paradigm and performance console interface tailored for the FM-1 hardware.
@@ -642,21 +643,13 @@ Useful open-source tools, documentation, and SDK repositories:
 
 ### 3.3. Vendor SDKs, Architecture & JieLi Community Research
 
- 1. **[M-VAVE FM1 Open Firmware & Official SDK (m-vave/fm1_open)](https://github.com/m-vave/fm1_open) ([Releases / V10](https://github.com/m-vave/fm1_open/releases) | [Official Workbench](https://open.m-vave.com/fm1-workbench)):**
-    * **License:** Open Source (GPL-3.0-only for application code; includes vendor binary libraries and third-party notices).
-    * **Significance:** Official open-source release of the factory FM-1 firmware and SDK directly from the manufacturer (M-VAVE).
-    * **Architecture & Contents:**
-      * **8 Tracks & 8 Sample Slots:** Full multitrack groovebox architecture with 8 audio/synth tracks, 8 sample slots, and 16 built-in demo presets/FX.
-      * **Board Drivers & Audio HAL:** Direct hardware C source code for panel controls, 240 × 240 display, encoders, and audio engine rendering (`app/board/`, `app/audio_output.c`) supporting USB/Bluetooth mixing and USB recording.
-      * **Complete Toolchain & WebAssembly Workbench:** Complete build scripts (`build.bat`) supporting both native firmware compilation via JieLi PI32v2 Clang 4.0.1 (`FM1_OFFICIAL_OPEN.fwsc`) and WebAssembly compilation via WASI SDK 27 for in-browser workbench simulation.
-
- 2. **[JieLi AC79 AIoT SDK (Gitee Repository)](https://gitee.com/Jieli-Tech/fw-AC79_AIoT_SDK):**
+ 1. **[JieLi AC79 AIoT SDK (Gitee Repository)](https://gitee.com/Jieli-Tech/fw-AC79_AIoT_SDK):**
     Official C SDK codebase for AC79 series (WL82 / AC791N) microcontrollers, containing board support packages (BSP), linker scripts, and hardware register headers.
 
- 3. **[JieLi AC79 Official Peripheral Documentation](https://doc.zh-jieli.com/AC79/zh-cn/release_v1.0.3/module_example/peripherals/sd.html):**
+ 2. **[JieLi AC79 Official Peripheral Documentation](https://doc.zh-jieli.com/AC79/zh-cn/release_v1.0.3/module_example/peripherals/sd.html):**
     Official documentation covering AC79xx series peripheral hardware modules (SD controller, GPIO, UART, SPI, I2S).
 
- 4. **[JieLi SoC Forum Thread (esp8266.ru)](https://esp8266.ru/forum/threads/jl-soc.5500/):**
+ 3. **[JieLi SoC Forum Thread (esp8266.ru)](https://esp8266.ru/forum/threads/jl-soc.5500/):**
     Community research thread discussing JieLi SoCs, SDKs, toolchains, flash recovery, and hardware boot modes.
 
 ### 3.4. Emulators, Simulators & Virtual Instruments
