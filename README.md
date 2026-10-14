@@ -468,7 +468,9 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
 All technical deep dives, hardware reverse engineering findings, bootloader memory maps, and protocol specifications are documented in **[REVERSE_ENGINEERING.md](REVERSE_ENGINEERING.md)**:
 
 * **Hardware & Ecosystem Overview:** JieLi AC791N SoC specs, devboard details, PCB characteristics, and teardown instructions.
-* **Device Recovery Vectors:** Plain USB unbricking (`WL82 UBOOT1.00` mask-ROM mode via `jl-uboot-tool`) and hardware RP2040 `USB_KEY` dongles.
+* **Device Recovery Vectors:**
+  * **Plain USB Unbricking:** Soft-brick recovery directly into `WL82 UBOOT1.00` mask-ROM mode via `jl-uboot-tool` and `MvaveFM1Unbricker` without opening the casing.
+  * **Hardware `USB_KEY` Mask-ROM Recovery:** Forcing mask-ROM USB download mode on frozen/hard-bricked processors using an external RP2040 dongle ([FM-1 Transporter](https://github.com/kurogedelic/FM-1-transporter)) pulsing the JieLi hardware boot key (`0x16EF` at ~50 kHz) over USB D+/D- lines, with community wiring instructions for Seeed XIAO RP2040 / Raspberry Pi Pico (Green to D6, White to D7, Black to GND).
 * **Firmware Container Analysis:** Embedded `.fwsc` firmware extraction from `M-UPGRADE-FM1` (Qt resource layout, `@JMUA` / `JLUFW` signatures).
 * **MIDI SysEx OTA Protocol:** Handshake, parameter query behavior, and verified two-step device-pull session flow with 8→7 LSB-first bitstream encoding.
 * **Memory Map & Bootloader:** Flash partitions (UBOOT, App, VM), linker script requirements, and critical bootloader re-entry guidelines.
