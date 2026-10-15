@@ -210,7 +210,20 @@ Firmwares built upon or directly forked from the foundational open-source multi-
       * **Optimized Flash Footprint:** Sample playback assets removed to maximize flash space and code budget for sequence memory and pattern chaining.
     * **Installation:** Prebuilt `.fwsc` firmware releases available on GitHub; flash via WebMIDI or CLI flasher.
 
+22. **[LCD-4 by devrvega](https://github.com/devrvega/LCD-4) ([Website & Hub](https://devrvega.github.io/LCD-4/) | [Web Emulator](https://devrvega.github.io/LCD-4/emu/) | [Web Installer](https://devrvega.github.io/LCD-4/install/) | [Manual](https://devrvega.github.io/LCD-4/manual/)):**
+    * **License:** Open Source (GPL-3.0). Built on Felucca by Hügelton Instruments, by way of X0X, AMB-1, and IND-1.
+    * **Concept:** Four-track pocket groovebox inspired by pocket calculator synths (Teenage Engineering Pocket Operator style) and vintage Game & Watch LCD games, featuring custom animated LCD game scenes for every sound engine.
+    * **Features:**
+      * **Four Dedicated Tracks:**
+        * **Drums:** 4 kits of 11 parts selectable on black keys (TR-808, TR-909, Arcade console with pulse kicks/zaps/coin, and Vintage Rhythm Box CR-78/606). White keys act as 16-step sequencer lanes as on X0X, featuring Pip the drummer animating on screen.
+        * **Basses:** Circuit-modelled Acid (TB-303 with accents/slides and bubbling lab animation), Mono (SH-101), Fat (Minimoog), Boom (808 sub), FM Bass (DX7), and Reese.
+        * **Keys:** Poly (Juno-60 with chorus), Brass (Prophet-5 / OB-Xa), E.Piano (DX7), Organ (Korg M1 house organ), Strings (Solina string ensemble), and Bells.
+        * **Leads:** Sync, Scream (Korg MS-20), Arcade (NES/Game Boy chip channels with tracker FX), and Arp. (Any synth track can load any sound).
+      * **Sequencing & Performance:** 16 patterns with pattern chaining up to 64 steps, 16 chords with chord progression chaining, parameter locks (p-locks), ratchets, slides, swing, 16 punch-in effects, and live/step recording.
+    * **Installation:** One-click browser WebMIDI installer (`v0.1.0`), in-browser WebAssembly emulator, or flashing prebuilt `lcd4-0.1.0.fwsc`.
+
 #### 1.1.2. SLOOP Ecosystem (Groovebox Core & Derived Firmwares)
+
 
 Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its DX7/sampling expansion forks:
 
