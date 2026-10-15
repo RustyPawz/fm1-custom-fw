@@ -16,10 +16,12 @@ A curated directory and reference hub for the **M-VAVE FM1** synthesizer (powere
 > [!IMPORTANT]
 > **Official Open Source Firmware & SDK (M-VAVE):**  
 > In October 2026, M-VAVE briefly open-sourced their FM-1 firmware and development toolkit under GPL-3.0.  
-> **Status Notice:** As of now, the official GitHub repository (`m-vave/fm1_open`), the online web workbench (`open.m-vave.com`), and the announcement threads on the official forum have been taken down / deleted by the manufacturer:
+> **Status Notice:** While the official GitHub repository (`m-vave/fm1_open`), the online web workbench (`open.m-vave.com`), and forum announcements were subsequently taken down by the manufacturer, community mirrors and web cache archives are preserved:
 > * **Repository (Offline / Removed):** **[m-vave/fm1_open](https://github.com/m-vave/fm1_open)** (8 tracks, 8 sample slots, 16 demo FX, hardware C drivers, and WebAssembly simulator).
-> * **Official Web Workbench (Offline / Removed):** **[open.m-vave.com/fm1-workbench](https://open.m-vave.com/fm1-workbench)**.
+> * **Community Cached Open Workbench:** Preserved by the community with instructions, discussion, and mirror link on Reddit: **[r/MVaveFM1: Cached web page for the open workbench](https://www.reddit.com/r/MVaveFM1/comments/1x5y4qy/cached_web_page_for_the_open_workbench/)** — provides working in-browser WebAssembly simulation, firmware flashing, and stock V15 recovery when other tools fail.
 > * **Announcement & Discussion (Removed):** **[M-VAVE Official Forum Topic #4](https://forum.m-vave.com/topic/4)**.
+
+
 
 ---
 
@@ -463,15 +465,28 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **On-Device Graphical Editing:** Real-time filter frequency curve rendering and envelope visualization on the 240 × 240 display.
     * **Installation:** Browser WebMIDI installer via USB directly from the project homepage.
 
-17. **[M-VAVE FM1 Open Firmware (m-vave/fm1_open)](https://github.com/m-vave/fm1_open) ([Releases / V10](https://github.com/m-vave/fm1_open/releases) | [Official Workbench](https://open.m-vave.com/fm1-workbench)):**
+17. **[MONK-1 by Charles Vestal](https://github.com/charlesvestal/fm1-monk) ([Web Emulator](https://charlesvestal.github.io/fm1-monk/emu/) | [Web Installer](https://charlesvestal.github.io/fm1-monk/install/) | [Manual](https://charlesvestal.github.io/fm1-monk/manual/) | [Releases](https://github.com/charlesvestal/fm1-monk/releases)):**
+    * **License:** Open Source (GPL-3.0). Free of charge (donations suggested to savetibet.org).
+    * **Concept:** Formant vocal synthesizer firmware turning the FM-1 into Jonathan Taylor's **MonkSynth** (homage to AudioNerdz's 2002 *Delay Lama* plug-in) with twelve singing characters (Jerry the monk, Philip the unicorn, Snider, etc.).
+    * **Features:**
+      * **12 Animated Singing Characters:** Each character sings with its own vocal tract size and voice; mouth animations follow vowels in real-time sprite frames on the color screen.
+      * **Native Velocity & Pressure/Aftertouch:** Leverages the FM-1's stock capacitive keys without hardware modifications (via [Velo](https://github.com/charlesvestal/fm1-velocity) sensing algorithms) to control note loudness via strike velocity and vowel morphing/pitch bends via pressure aftertouch.
+      * **Dedicated Vocal Controls:** Gliding legato mono voice, Choir/Unison stack (1–10 voices with detune and head size spread), vibrato rate/depth, echo delay, ADSR envelopes, and octave switching.
+      * **USB MIDI & Accessibility:** Full USB-MIDI in/out with polyphonic aftertouch and vowel CC controls; integrates with the [FM-1 Screen Reader](https://charlesvestal.github.io/fm1-reader/) to speak aloud on-screen parameters and button actions for visually impaired users.
+    * **Installation:** Browser WebMIDI installer via USB, in-browser WebAssembly emulator, or flashing prebuilt releases.
+
+18. **[M-VAVE FM1 Open Firmware (m-vave/fm1_open)](https://github.com/m-vave/fm1_open) ([Releases / V10](https://github.com/m-vave/fm1_open/releases) | [Official Workbench (Offline)](https://open.m-vave.com/fm1-workbench) | [Cached Workbench on Reddit](https://www.reddit.com/r/MVaveFM1/comments/1x5y4qy/cached_web_page_for_the_open_workbench/)):**
     * **License:** Open Source (GPL-3.0-only for application code; includes vendor binary libraries and third-party notices).
     * **Significance:** Official open-source release of the factory FM-1 firmware and SDK directly from the manufacturer (M-VAVE).
-    * **Status Notice:** As of now, the upstream GitHub repository, the web workbench (`open.m-vave.com`), and related forum threads have been removed / taken offline by M-VAVE.
+    * **Status Notice:** While upstream links (`m-vave/fm1_open` and `open.m-vave.com`) were taken down by M-VAVE, a [cached copy of the open workbench](https://www.reddit.com/r/MVaveFM1/comments/1x5y4qy/cached_web_page_for_the_open_workbench/) is preserved and shared on the r/MVaveFM1 subreddit (allowing in-browser WebAssembly simulation, firmware flashing, and stock V15 recovery).
     * **Architecture & Features:**
       * **8 Tracks & 8 Sample Slots:** Full multitrack groovebox architecture with 8 audio/synth tracks, 8 sample slots, and 16 built-in demo presets/FX.
       * **Board Drivers & Audio HAL:** Direct hardware C source code for panel controls, 240 × 240 display, encoders, and audio engine rendering (`app/board/`, `app/audio_output.c`) supporting USB/Bluetooth mixing and USB recording.
       * **Complete Toolchain & WebAssembly Workbench:** Complete build scripts (`build.bat`) supporting both native firmware compilation via JieLi PI32v2 Clang 4.0.1 (`FM1_OFFICIAL_OPEN.fwsc`) and WebAssembly compilation via WASI SDK 27 for in-browser workbench simulation.
-    * **Installation:** Official web workbench flasher via USB or building `.fwsc` from source.
+    * **Installation:** Web workbench flasher via USB (using cached page shared on Reddit), official flasher, or building `.fwsc` from source.
+
+
+
 
 ### 1.2. Modular Firmware Platforms & Builders
 
@@ -678,8 +693,16 @@ Useful open-source tools, documentation, and SDK repositories:
  3. **[SLOOP FM-1 Simulator by Chance Roth](https://github.com/chancethemaker/sloop-fm1-sim) ([Web Simulator](https://chancethemaker.github.io/sloop-fm1-sim)):**
     Self-contained in-browser interactive simulator of the SLOOP / Felucca firmware for the FM-1, allowing testing controls, sound engines, and workflow directly in the browser without physical hardware.
 
- 4. **[FM-1 Mobile by hb3p8](https://github.com/hb3p8/fm1-mobile-emu) ([Web App](https://hb3p8.github.io/fm1-mobile-emu/)):**
-    Compilation of real FM-1 firmware engines (X0X, Felucca, SLOOP, FiMba-1) into WebAssembly paired with a mobile-optimized touch interface reproducing the hardware control layout on phones.
+ 4. **[FM-1 Mobile by hb3p8](https://github.com/hb3p8/fm1-mobile-emu) ([Web App & Mobile Emulator](https://hb3p8.github.io/fm1-mobile-emu/)):**
+    * **Platform:** Mobile-first progressive web app (PWA) with full offline support (Add to Home Screen on iOS/Android).
+    * **Concept:** Seven real FM-1 C firmware engines compiled to WebAssembly running inside an accurate hardware-simulated touch panel matching the physical FM-1 instrument layout.
+    * **Switchable Firmwares:** On-the-fly switching between **X0X** 1.0.6 (acid/TR-style drums & 303), **Felucca** 1.6 (multi-engine synth & 64-step sequencer), **SLOOP** 2.6 (live groovebox), **FiMba-1** 0.6.1 (physical modeling kalimba), **Melodee** 1.4.0-rc.1 (CZ-1, FM6, Prophet-5 & microtonal), **AMB-1** 1.1 (generative ambient), and **MAKU** 0.1 (generative intermission soundscapes).
+    * **Features & Architecture:**
+      * **AudioWorklet Hardware Clock:** Accurate timing loop where rendering audio advances the device's clock, driving firmware audio interrupts and main loops exactly as on physical hardware.
+      * **Display & Graphics:** Real-time 240 × 240 display output drawn via WebGL with optional retro xBR smoothing filter.
+      * **Responsive Ergonomics:** Adaptive portrait and landscape touch layouts, multi-touch keys with glides, encoder drag controls, button latching ("Hold" mode for SEL combos), and computer keyboard shortcuts.
+      * **Persistent Storage:** Browser local storage isolates and preserves patterns, projects, and custom loops separately across each firmware switch.
+
 
  5. **[Virtual-FM-1 by jbschooley](https://github.com/jbschooley/Virtual-FM-1):**
     Software replica of the M-VAVE FM-1: standalone FM synthesizer application and VST3/AU audio plugin featuring bidirectional preset and pattern synchronization with hardware over the Baud Girl (FM-1+VA) firmware.
@@ -759,7 +782,13 @@ Useful open-source tools, documentation, and SDK repositories:
       * Fast bidirectional file listing, patch browsing, sample transfer, and remote UI state synchronization on 240 × 240 displays without requiring flash wear.
       * Developed for M-VAVE SMK-37 (under the Oscuro project) and architecturally adaptable to the M-VAVE FM-1 given their shared AC791N SoC and USB stack. Includes desktop Python host mock (`pyusb`) and wire protocol documentation.
 
+17. **[Relay FM-1 Editor, Firmware Database & Manager by Stanley Gurvich (EmeraldMoonLabs)](https://github.com/stanleygurvich/fm1-firmware-database) ([Web Feed](https://stanleygurvich.github.io/fm1-firmware-database/) | [Reddit Announcement](https://www.reddit.com/r/MVaveFM1/comments/1x6gg0h/relay_fm1_editor_firmware_database_emulator/)):**
+    * **Concept:** Comprehensive FM-1 editor, firmware database, emulator host, and automated release feed service.
+    * **Automated Firmware Feed:** Runs a scheduled automated crawler tracking the [FM-1 Resource Hub](https://github.com/aroum/fm1-custom-fw) and upstream GitHub releases every 3 hours. Publishes a unified `feed.json` verifying firmware update packages (`.fwsc` SHA-256, `FELUCCA-LOADER-1` and `FM-1_` package markers, asset sizes, and web installer links) across 60+ projects.
+    * **Felucca Web App & Deep Editor:** Includes companion [UplinkFeluccaEditor-WebApp](https://github.com/stanleygurvich/UplinkFeluccaEditor-WebApp) with Web MIDI SysEx parameter control, custom package verification, backup tools, and in-browser mock testing.
+
 ### 3.6. Developer Frameworks, UI Designers & Curated Collections
+
 
  1. **[MvaveFM1-Designer by Quixotic7](https://github.com/Quixotic7/MvaveFM1-Designer):**
     Visual UI and panel state designer for FM-1 custom developers (mapping key/button LED states, knob functions, and OLED/TFT screen layouts).
@@ -773,7 +802,16 @@ Useful open-source tools, documentation, and SDK repositories:
  4. **[Fluyt by rgrvmusic](https://www.reddit.com/r/LogueSDK/comments/1x3upww/fluyt_felucca_synth_engines_for_drumlogue/):**
     Community port and adaptation of the open-source **Felucca** synthesizer engines from the M-VAVE FM-1 to the **Korg drumlogue** (LogueSDK user synth unit), demonstrating cross-platform portability of Felucca DSP algorithms.
 
+### 3.7. Custom Soundbanks & Preset Collections
+
+Dedicated sound banks, commercial patches, and SysEx preset packs tailored for the M-VAVE FM-1:
+
+ 1. **[Ambient & Dreams by NatLife Sounds](https://natlifesounds.com/product/ambient-dreams-for-m-vave-fm-1-fm-synthesizers/):**
+    * **Format & Compatibility:** Standard 32-preset SysEx bank (`.syx`) with FM-1 USB installation instructions (cross-compatible with Yamaha DX7/DX7 II, Korg Opsix 2.0, Korg Volca FM/FM2, Dexed, Arturia DX7 V, and NI FM8).
+    * **Sound Design:** 32 tailored ambient FM presets designed to showcase soft, harmonic FM textures without harsh digital dissonance — includes 1 AAH vocal preset, 5 bass patches, 2 FX textures, 2 leads, 5 ambient pads, 10 plucks, and 8 melodic synth sounds. Includes video demo walkthroughs and tutorials.
+
 ---
+
 
 ## 4. Documentation, Protocols & Guides
 
