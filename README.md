@@ -218,6 +218,9 @@ Firmwares built upon or directly forked from the foundational open-source multi-
         * **Basses:** Circuit-modelled Acid (TB-303 with accents/slides and bubbling lab animation), Mono (SH-101), Fat (Minimoog), Boom (808 sub), FM Bass (DX7), and Reese.
         * **Keys:** Poly (Juno-60 with chorus), Brass (Prophet-5 / OB-Xa), E.Piano (DX7), Organ (Korg M1 house organ), Strings (Solina string ensemble), and Bells.
         * **Leads:** Sync, Scream (Korg MS-20), Arcade (NES/Game Boy chip channels with tracker FX), and Arp. (Any synth track can load any sound).
+      * **Sequencing & Performance:** 16 patterns with pattern chaining up to 64 steps, 16 chords with chord progression chaining, parameter locks (p-locks), ratchets, slides, swing, 16 punch-in effects, and live/step recording.
+    * **Installation:** One-click browser WebMIDI installer (`v0.1.0`), in-browser WebAssembly emulator, or flashing prebuilt `lcd4-0.1.0.fwsc`.
+
 23. **[PIGEON by The Shrimp Blimp](https://github.com/TheShrimpBlimp/pigeon) ([Website](https://theshrimpblimp.com/pigeon/) | [Web Emulator](https://theshrimpblimp.com/pigeon/webapp/emu/)):**
     * **License:** Open Source (GPL-3.0). Built on Felucca by Hügelton Instruments.
     * **Concept:** Old-school hip-hop and house sampling groovebox inspired by the Roland SP-404 and Teenage Engineering Pocket Operator PO-33.
@@ -235,6 +238,27 @@ Firmwares built upon or directly forked from the foundational open-source multi-
     * **Concept:** Generative music synthesizer and composition engine.
     * **Features:** Interactive composer profiles algorithmically generate and evolve musical tracks in real time, with macro controls allowing the performer to steer tonal palettes, tempo, and arrangement.
     * **Installation:** Browser WebMIDI installer via USB directly from the project site.
+
+26. **[X0X-RMX by Mr-Roboto](https://github.com/Mr-Roboto/fm1-x0x-rmx) ([Website](https://mr-roboto.github.io/fm1-x0x-rmx/) | [Web Installer](https://mr-roboto.github.io/fm1-x0x-rmx/install/) | [Web Emulator](https://mr-roboto.github.io/fm1-x0x-rmx/emu/) | [Releases](https://github.com/Mr-Roboto/fm1-x0x-rmx/releases)):**
+    * **License:** Open Source (GPL-3.0). Independent fork of X0X by Charles Vestal (built on Felucca).
+    * **Concept:** Enhanced ReBirth-style acid and techno groovebox machine expanding the dual drum machines (TR-909 / TR-808), dual TB-303 synthesizers, and breakbeat engine.
+    * **Features:**
+      * **ORB-Inspired Remix Engine:** 256 step-remapping patterns available independently for the 909, 808, 303A, and 303B lanes.
+      * **Enhanced TB-3PO Bassline Generator:** 22 musical scales, motif-based melodic phrase generation, rhythmic call-and-response phrasing, expressive accents/slides, and controlled parameter mutation.
+      * **Grids MAP/EUCLID Drum Generation:** Generative Euclidean rhythm and drum patterns with density fill, offset, and chaos probability controls.
+      * **Experimental 303 Morph Waveform:** Continuous real-time waveform morphing between Sharkfin, Trapezoid, and Notch-Trapezoid responses.
+      * **Performance & Display Polish:** Pattern chaining, saved startup pattern combinations, and six selectable LCD color schemes.
+    * **Installation:** Browser WebMIDI installer via USB directly from the project website or flashing prebuilt `v1.0.0` releases.
+
+27. **[DUB-1 by sbegueria](https://github.com/sbegueria/fm1-dub) ([Web Installer](https://sbegueria.github.io/fm1-dub/install/) | [Web Emulator](https://sbegueria.github.io/fm1-dub/emu/) | [Manual](https://sbegueria.github.io/fm1-dub/manual/)):**
+    * **License:** Open Source (GPL-3.0). Fork of AMB-1 by Charles Vestal (built on Felucca by Hügelton Instruments).
+    * **Concept:** Berlin-style generative dub techno machine ("4 AM in Berlin"): power on and it immediately self-generates deep, evolving dub techno arrangements.
+    * **Features:**
+      * **Generative Dub Structure:** Chord stabs sent into tape delay, 4 FM ping loops running at independent polymeter lengths, tuned deep sub-bass under a ducking kick, rhythmic shaker, off-beat hi-hat, rimshot, sparse claps, and authentic vinyl crackle.
+      * **Self-Arranging 8-Bar Phrases:** Automatically generates evolving arrangements with kick drops, breakdowns, builds, and fills.
+      * **Generative & Custom Chord Memory:** Weighted random walks over musical scales that naturally resolve home, voiced as classic Roland/Basic Channel chord-memory stabs, plus 8 user-programmable progression slots.
+      * **Performance Dub Controls & Echo Ripples:** Dedicated `REC` dub-hold button to freeze and loop the tape delay buffer infinitely while reverb continues ringing out and dry beats ride over top; real-time echo ripple animations visualising delay throws and loop positions on screen.
+    * **Installation:** Browser WebMIDI installer via USB directly from the project site or in-browser WebAssembly simulation.
 
 #### 1.1.2. SLOOP Ecosystem (Groovebox Core & Derived Firmwares)
 
