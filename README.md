@@ -15,11 +15,10 @@ A curated directory and reference hub for the **M-VAVE FM1** synthesizer (powere
 
 > [!IMPORTANT]
 > **Official Open Source Firmware & SDK (M-VAVE):**  
-> In October 2026, M-VAVE briefly open-sourced their FM-1 firmware and development toolkit under GPL-3.0.  
-> **Status Notice:** While the official GitHub repository (`m-vave/fm1_open`), the online web workbench (`open.m-vave.com`), and forum announcements were subsequently taken down by the manufacturer, community mirrors and web cache archives are preserved:
-> * **Repository (Offline / Removed):** **[m-vave/fm1_open](https://github.com/m-vave/fm1_open)** (8 tracks, 8 sample slots, 16 demo FX, hardware C drivers, and WebAssembly simulator).
-> * **Community Cached Open Workbench:** Preserved by the community with instructions, discussion, and mirror link on Reddit: **[r/MVaveFM1: Cached web page for the open workbench](https://www.reddit.com/r/MVaveFM1/comments/1x5y4qy/cached_web_page_for_the_open_workbench/)** — provides working in-browser WebAssembly simulation, firmware flashing, and stock V15 recovery when other tools fail.
-> * **Announcement & Discussion (Removed):** **[M-VAVE Official Forum Topic #4](https://forum.m-vave.com/topic/4)**.
+> In October 2026, M-VAVE officially open-sourced the FM-1 firmware and development toolkit under GPL-3.0:
+> * **Repository:** **[m-vave/fm1_open](https://github.com/m-vave/fm1_open)** (8 tracks, 8 sample slots, 16 demo FX, hardware C drivers, and WebAssembly simulator).
+> * **Online Web Workbench:** **[open.m-vave.com/fm1-workbench](https://open.m-vave.com/fm1-workbench)** — provides in-browser WebAssembly simulation, testing, and direct USB firmware flashing.
+> * **Announcement & Discussion:** **[M-VAVE Official Forum Topic #4](https://forum.m-vave.com/topic/4)**.
 
 
 
@@ -219,8 +218,23 @@ Firmwares built upon or directly forked from the foundational open-source multi-
         * **Basses:** Circuit-modelled Acid (TB-303 with accents/slides and bubbling lab animation), Mono (SH-101), Fat (Minimoog), Boom (808 sub), FM Bass (DX7), and Reese.
         * **Keys:** Poly (Juno-60 with chorus), Brass (Prophet-5 / OB-Xa), E.Piano (DX7), Organ (Korg M1 house organ), Strings (Solina string ensemble), and Bells.
         * **Leads:** Sync, Scream (Korg MS-20), Arcade (NES/Game Boy chip channels with tracker FX), and Arp. (Any synth track can load any sound).
-      * **Sequencing & Performance:** 16 patterns with pattern chaining up to 64 steps, 16 chords with chord progression chaining, parameter locks (p-locks), ratchets, slides, swing, 16 punch-in effects, and live/step recording.
-    * **Installation:** One-click browser WebMIDI installer (`v0.1.0`), in-browser WebAssembly emulator, or flashing prebuilt `lcd4-0.1.0.fwsc`.
+23. **[PIGEON by The Shrimp Blimp](https://github.com/TheShrimpBlimp/pigeon) ([Website](https://theshrimpblimp.com/pigeon/) | [Web Emulator](https://theshrimpblimp.com/pigeon/webapp/emu/)):**
+    * **License:** Open Source (GPL-3.0). Built on Felucca by Hügelton Instruments.
+    * **Concept:** Old-school hip-hop and house sampling groovebox inspired by the Roland SP-404 and Teenage Engineering Pocket Operator PO-33.
+    * **Features:** Two song sample tracks and a 16-pad drum kit, up to 32 chops per song sample, 64-step sequencer, pattern chaining, and complete song arrangement mode.
+    * **Installation:** Browser WebMIDI installer via USB directly from the project site or flashing prebuilt releases.
+
+24. **[NOIZ DEMONS by SPIKE the Percussionist](https://github.com/SPIKE-the-Percussionist/noiz_demons) ([Releases](https://github.com/SPIKE-the-Percussionist/noiz_demons/releases)):**
+    * **License:** Open Source. Built on Felucca by Hügelton Instruments.
+    * **Concept:** Ritualistic noise and sound generator firmware where parameter randomization is framed as occult summoning.
+    * **Features:** Generating a sound summons one of 30 demons of the Ars Goetia, rendering the demon's sigil across the 240 × 240 color screen while its demonic rank algorithmically drives the wildness and distortion of the sound synthesis engine.
+    * **Installation:** Flashing prebuilt `noiz_demons-v666.fwsc` via WebMIDI or CLI flasher.
+
+25. **[Tuna by delirioux](https://github.com/delirioux/tuna) ([Website & Web Emulator](https://delirioux.github.io/tuna/)):**
+    * **License:** Open Source. Built on Felucca by Hügelton Instruments.
+    * **Concept:** Generative music synthesizer and composition engine.
+    * **Features:** Interactive composer profiles algorithmically generate and evolve musical tracks in real time, with macro controls allowing the performer to steer tonal palettes, tempo, and arrangement.
+    * **Installation:** Browser WebMIDI installer via USB directly from the project site.
 
 #### 1.1.2. SLOOP Ecosystem (Groovebox Core & Derived Firmwares)
 
@@ -336,6 +350,12 @@ Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its 
       * **Web 3D Simulator & Recorder:** Includes an interactive in-browser 3D model simulator running the real firmware via WebAssembly with audio playback and a Win98-style screen & sound recorder widget.
     * **Installation:** One-click WebMIDI installer via USB directly on the website or flashing `release/winampfm-0.12.fwsc`.
 
+ 14. **[MYCELIUM by Mandalars](https://github.com/megagott/mycelium-fm1) ([Website](https://www.mandalars.org/mandalars/fm1/) | [Releases](https://github.com/megagott/mycelium-fm1/releases)):**
+     * **License:** Open Source (GPL-3.0). Built upon Felucca and SLOOP.
+     * **Concept:** Psychedelic dance music groovebox firmware dedicated to Forest, Psytrance, Goa, and Hitech production on the FM-1.
+     * **Features:** Custom-crafted punchy trance drum kits, alien psychedelic icons and animations, fast rolling 16th-note bassline tools, and four factory demo arrangements.
+     * **Installation:** Flashing prebuilt `.fwsc` test releases via WebMIDI or CLI flasher.
+
 #### 1.1.3. FoMni Family (Strumplate & Chord Instruments)
 
 Suzuki Omnichord and Japanese Shigin accompaniment instruments featuring strumplate and chord-shaping workflows:
@@ -351,6 +371,12 @@ Suzuki Omnichord and Japanese Shigin accompaniment instruments featuring strumpl
     * **Concept:** Traditional Japanese Shigin accompaniment synthesizer inspired by Suikohsha's ST-50.
     * **Features:** Authentic Koto, Sho, Shakuhachi, and Taiko voices tuned to the historical ST-50 just intonation scale system.
     * **Installation:** Browser WebMIDI installer via USB.
+
+ 3. **[CoralFlower by FicusFicusov](https://github.com/FicusFicusov/CoralFlower) ([Website & Web Player](https://ficusficusov.github.io/CoralFlower/) | [Releases](https://github.com/FicusFicusov/CoralFlower/releases)):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Expressive chord machine inspired by the Torso Electronics T-1 / Orchid chord concepts, tailored specifically to the ergonomics of the FM-1.
+    * **Features:** Single-finger chord generation with root and bass note coupling, 27 musical scales, built-in arpeggiator, looper, lush plate reverb, and an evolving pixel flower graphic that grows on the 240 × 240 screen as you play.
+    * **Installation:** In-browser WebMIDI player/installer or flashing prebuilt releases (`v0.2`).
 
 #### 1.1.4. Independent & Original Engine Firmwares
 
@@ -488,15 +514,78 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
       * **USB MIDI & Accessibility:** Full USB-MIDI in/out with polyphonic aftertouch and vowel CC controls; integrates with the [FM-1 Screen Reader](https://charlesvestal.github.io/fm1-reader/) to speak aloud on-screen parameters and button actions for visually impaired users.
     * **Installation:** Browser WebMIDI installer via USB, in-browser WebAssembly emulator, or flashing prebuilt releases.
 
-18. **[M-VAVE FM1 Open Firmware (m-vave/fm1_open)](https://github.com/m-vave/fm1_open) ([Releases / V10](https://github.com/m-vave/fm1_open/releases) | [Official Workbench (Offline)](https://open.m-vave.com/fm1-workbench) | [Cached Workbench on Reddit](https://www.reddit.com/r/MVaveFM1/comments/1x5y4qy/cached_web_page_for_the_open_workbench/)):**
+18. **[M-VAVE FM1 Open Firmware (m-vave/fm1_open)](https://github.com/m-vave/fm1_open) ([Releases / V10](https://github.com/m-vave/fm1_open/releases) | [Official Workbench](https://open.m-vave.com/fm1-workbench)):**
     * **License:** Open Source (GPL-3.0-only for application code; includes vendor binary libraries and third-party notices).
     * **Significance:** Official open-source release of the factory FM-1 firmware and SDK directly from the manufacturer (M-VAVE).
-    * **Status Notice:** While upstream links (`m-vave/fm1_open` and `open.m-vave.com`) were taken down by M-VAVE, a [cached copy of the open workbench](https://www.reddit.com/r/MVaveFM1/comments/1x5y4qy/cached_web_page_for_the_open_workbench/) is preserved and shared on the r/MVaveFM1 subreddit (allowing in-browser WebAssembly simulation, firmware flashing, and stock V15 recovery).
     * **Architecture & Features:**
       * **8 Tracks & 8 Sample Slots:** Full multitrack groovebox architecture with 8 audio/synth tracks, 8 sample slots, and 16 built-in demo presets/FX.
       * **Board Drivers & Audio HAL:** Direct hardware C source code for panel controls, 240 × 240 display, encoders, and audio engine rendering (`app/board/`, `app/audio_output.c`) supporting USB/Bluetooth mixing and USB recording.
       * **Complete Toolchain & WebAssembly Workbench:** Complete build scripts (`build.bat`) supporting both native firmware compilation via JieLi PI32v2 Clang 4.0.1 (`FM1_OFFICIAL_OPEN.fwsc`) and WebAssembly compilation via WASI SDK 27 for in-browser workbench simulation.
-    * **Installation:** Web workbench flasher via USB (using cached page shared on Reddit), official flasher, or building `.fwsc` from source.
+    * **Installation:** Web workbench flasher via USB (`open.m-vave.com`), official flasher, or building `.fwsc` from source.
+
+19. **[OPN-1 by putchdev](https://github.com/putchdev/opn-1) ([Reddit Announcement](https://www.reddit.com/r/MVaveFM1/comments/1x7edf7/mega_drive_genesis_sounds_on_the_fm1/)):**
+    * **License:** Open Source.
+    * **Concept:** Sega Mega Drive / Genesis sound chip recreation for the M-VAVE FM-1, accurately emulating both the Yamaha **YM2612** 6-channel FM synthesizer and the Texas Instruments **SN76489** 4-channel PSG (Programmable Sound Generator).
+    * **Features:**
+      * **VGM / VGZ File Player & Patch Converter:** Web companion app converts Sega Genesis/Mega Drive VGM and VGZ music rips into playable patch banks sent directly to the FM-1, or plays the tracks directly through the synthesizer hardware.
+      * **Multitimbral Polyphony & Compatibility Modes:** Includes a 6-part monophonic Mega Drive accurate compatibility mode (mapped across individual MIDI channels, with special CH3 multitimbral mode) as well as a modern polyphonic mode where parts can be layered across identical or customized MIDI channels.
+      * **Advanced Part Composition & Layering:** Dedicated configuration screen with per-part amplitude scaling, programmable delay stages (parts kick in after a timed delay), and note-off trigger toggles to easily layer transients, sustain bodies, and release tails combining YM2612 FM and PSG voices.
+      * **MIDI & On-Device Playback:** Retains the last loaded patch set in memory for standalone play via capacitive keys, USB MIDI, and 3.5 mm TRS MIDI input.
+    * **Installation:** Web companion app over WebMIDI USB or building firmware from source.
+
+20. **[CS-1 by twochannels](https://github.com/twochannels/CS-1) ([Website & Web Emulator](https://twochannels.github.io/CS-1/)):**
+    * **License:** Open Source.
+    * **Concept:** Yamaha CS-80 analog synthesizer emulation in spirit for the FM-1.
+    * **Features:** 8 voices consisting of dual independent synthesizer channels, resonant high-pass and low-pass filters in series, ring modulator, expressive touch response modeling, and 22 factory tones faithfully recreated from the original 1977 CS-80 owner's manual.
+    * **Installation:** In-browser WebAssembly emulator and WebMIDI flasher.
+
+21. **[Frodhes by Leonardo Mirabal](https://github.com/leonardoMirabal/frodhes) ([Website & Web Emulator](https://leonardomirabal.github.io/frodhes/) | [Releases](https://github.com/leonardoMirabal/frodhes/releases)):**
+    * **License:** Open Source. Built on Dinghy.
+    * **Concept:** Fender Rhodes electric piano physical modeling synthesizer without sample dependencies.
+    * **Features:** 4 physical electric piano models (tines, pickups, hammer character), modeled analog signal chain featuring compressor, drive, stereo tremolo or auto-wah, phaser, chorus, stereo delay, and reverb. Includes tap tempo, MIDI clock sync, musical scale quantization, and patch presets.
+    * **Installation:** In-browser WebMIDI installer or flashing prebuilt `frodhes-X.X.X.fwsc`.
+
+22. **[Vector37 by genkigenki](https://github.com/genkigenki/Vector37) ([Repository](https://github.com/genkigenki/Vector37) | [Web Simulator](https://genkigenki.github.io/smk37/vector37-sim/)):**
+    * **License:** Open Source (GPL-3.0). Ported from the SMK-37 to FM-1.
+    * **Concept:** Orbiting overtone vector synthesizer inspired by the Beetlecrab Vector.
+    * **Features:** Four corners each hosting two overtone generators, with a central sun moving along an orbital trajectory and an orbiting moon determining crossfade and balance levels between generators, while encoders shape the active planet's synthesis characteristics.
+    * **Installation:** Browser simulator and build/flash via toolchain.
+
+23. **[HYP-1 by RedtailWorks](https://github.com/RustyPawz/fm1-HYP1) ([Website & Web Emulator](https://rustypawz.github.io/fm1-HYP1/)):**
+    * **License:** Open Source. Forked from AMB-1 by Charles Vestal.
+    * **Concept:** Hypnotic techno, acid, and drone groovebox firmware.
+    * **Features:** Continuously breathing atmospheric pads, deep sub-bass drones, generative TB-303 acid line generator, and granular textures layered over a hands-on live drum step sequencer with instant bar pattern flipping and breakdown/build-up macro staging.
+    * **Installation:** In-browser WebAssembly emulator and WebMIDI installer.
+
+24. **[Tonitor by Nuno Zimas](https://github.com/nzimas/tonitor) ([Website](https://nzimas.github.io/tonitor/)):**
+    * **License:** Open Source.
+    * **Concept:** 6-track experimental ambient and live looping performance synthesizer.
+    * **Features:** 3 distinct synthesis engines, algorithmic sound patch generator, free-length live audio loops supporting up to 10 overdubs per track, real-time granulator, multi-mode filters, and lush ambient reverb.
+    * **Installation:** Flashing via WebMIDI or CLI flasher.
+
+25. **[BEETLE by Joppe Sikken (SikkenWorks)](https://github.com/SikkenWorks/BEETLE) ([Website & Web Emulator](https://sikkenworks.github.io/BEETLE/) | [Releases](https://github.com/SikkenWorks/BEETLE/releases)):**
+    * **License:** Open Source.
+    * **Concept:** Classic vertical tracker firmware for the FM-1.
+    * **Features:** Vertical top-to-bottom step tracking interface styled after vintage trackers, featuring dedicated columns for Note, Instrument, Chord, and Effect commands, bringing fast demoscene tracker composition workflows to the FM-1's hardware screen and buttons.
+    * **Installation:** Web-based browser emulator/installer or flashing prebuilt release packages (`V1.01d_RC`).
+
+26. **[FOMAJAM by konsumer](https://github.com/konsumer/fomajam) ([Website & Web Emulator](https://konsumer.js.org/fomajam/) | [Releases](https://github.com/konsumer/fomajam/releases)):**
+    * **License:** Open Source.
+    * **Concept:** Classic step-grid vintage drum machine firmware for the FM-1.
+    * **Features:** Faithfully synthesized drum engines inspired by iconic rhythm units: Roland TR-909, TR-808, TR-707, TR-606, Oberheim DMX, and more. Features per-voice machine assignment, step accents, pattern banks, and full browser WebAssembly simulation.
+    * **Installation:** In-browser WebMIDI flasher and emulator directly from the project site or flashing prebuilt `fomajam-X.X.X.fwsc`.
+
+27. **[MIN-1 by Reytian](https://github.com/Reytian/fm1-min1) ([Website](https://reytian.github.io/fm1-min1/) | [Web Emulator](https://reytian.github.io/fm1-min1/emu/) | [Releases](https://github.com/Reytian/fm1-min1/releases)):**
+    * **License:** Open Source.
+    * **Concept:** Minimalist generative ensemble synthesizer firmware inspired by Philip Glass.
+    * **Features:** Immediately begins performing intricate generative patterns upon power-up, allowing the player to seamlessly join the performance at any time. Features an EASY mode where every white key triggers harmonically fitting chords, 4 algorithmic models, and 20 built-in minimalist musical pieces.
+    * **Installation:** Web-based emulator/installer via USB or flashing prebuilt `min1-X.X.X.fwsc`.
+
+28. **[Pocket GammaWave by ShadowTune (GammaWave Audio)](https://github.com/fvalente/GammaWave-FM1) ([Homepage](https://gammawaveaudio.com/) | [Web Simulator](https://fvalente.github.io/GammaWave-FM1/) | [Web Editor](https://fvalente.github.io/GammaWave-FM1/webapp/editor/?mock=1) | [Releases](https://github.com/fvalente/GammaWave-FM1/releases)):**
+    * **License:** Open Source.
+    * **Concept:** Companion pocket groovebox and industrial synthesizer for the GammaWave desktop synthesizer.
+    * **Features:** Four industrial distortion modes, formant vowel and screaming resonant filters, real-time FFT audio spectrogram visualization, 4-track tape deck style interface, and an automated algorithmic song generator spanning 49 musical genres (including modern Trap, Drill, and industrial soundscapes).
+    * **Installation:** In-browser WebAssembly simulator and WebMIDI installer or flashing prebuilt `gammawave-1.0-GW.fwsc`.
 
 
 
@@ -661,6 +750,12 @@ Useful open-source tools, documentation, and SDK repositories:
 10. **[ip2k/mvave-fm1-open-firmware Repository](https://github.com/ip2k/mvave-fm1-open-firmware):**
     Research project towards an open-source firmware for the M-VAVE FM-1. Includes specification, reference implementation, and simulation testbench for an **RP2040-based `USB_KEY` hardware recovery dongle** (`dongle/` directory) that forces the JieLi AC791N SoC into mask-ROM USB download mode (`UBOOT1.00`) via the external USB-C port, enabling low-level flash backup and unbricking.
 
+11. **[Custom Bootloader & Full Flash Backup/Restore Flasher by mobiliakas1](https://www.reddit.com/r/MVaveFM1/comments/1x6xtz1/testers_for_custom_bootloader_needed/):**
+    Under-development custom recovery bootloader and cross-platform flasher utility (Windows/macOS/Linux) for FM-1 and SMK-37. Enables full 1 MB SPI flash backup/restore over plain USB and provides standalone recovery without requiring external hardware dongles (RP2040/Transporter) if a bad firmware flash occurs.
+
+12. **[The FM-1 Firmware Hub (Make Firmware, Not War)](https://thefirmwarehub.com/) ([List View](https://thefirmwarehub.com/?view=list)):**
+    Web-based firmware manager and one-click WebMIDI installer created by Sven Trogus (zvenson). Allows previewing, installing, and switching between 50+ open-source community firmwares for the M-VAVE FM-1 directly from Chrome/Edge with automatic nightly updates from author repositories and instant rollback to official stock V15 firmware.
+
 ### 3.2. Reverse Engineering, Disassembly & Decompilation
 
  1. **[M-VAVE FM1 Hardware Architecture & Protocol Reference (Local)](REVERSE_ENGINEERING.md):**
@@ -724,7 +819,10 @@ Useful open-source tools, documentation, and SDK repositories:
     DAW plugin host (VST3, AU, and standalone) running Felucca-family firmwares (ChoralRoot, Felucca, Melodee) compiled directly from source and switchable on the fly.
 
  7. **[fm1-emu by Joakim Eriksson](https://github.com/joakimeriksson/fm1-emu) ([Web Emulator](https://joakimeriksson.github.io/fm1-emu/)):**
-    Full hardware emulator for the M-VAVE FM-1 running its firmwares completely unchanged both natively and directly in the browser via WebAssembly (emulates JieLi CPU, display, buttons, knobs, and audio output).
+    Full hardware emulator for the M-VAVE FM-1 running unmodified firmwares natively and directly in the browser via WebAssembly:
+    * **Hardware & CPU Emulation:** Full WebAssembly virtual machine emulating the JieLi AC791N SoC (dual-core 32-bit `pi32v2` CPU), 240 × 240 display, tactile buttons, knobs, and audio synthesis.
+    * **Firmware Loading:** Runs community firmwares (Felucca, X0X, FM1 Quest, AMB-1, FM-1 SID, ORBIT, FiMba-1, stock M-VAVE) downloaded on the fly, with support for uploading custom `.fwsc` update packages.
+    * **Features:** Configurable emulated clock speed, Web MIDI input routing with channel selection, support for loading Yamaha DX7 32-voice `.syx` banks for stock firmware, and computer keyboard / touch panel controls. Also includes an experimental SMK-37 emulator.
 
  8. **[FM-1 Studio by thingsapart](https://github.com/thingsapart/fm1-studio):**
     * **License:** Open Source (GPL-3.0).
@@ -853,6 +951,8 @@ Community hardware companion projects and accessories:
    Arduino-based adapter converting a standard 1/4" sustain pedal into MIDI CC64 over the FM-1's 3.5 mm TRS MIDI input (includes full schematics).
 3. **[fm1-midi-voice-tuner by pfkellogg](https://github.com/pfkellogg/fm1-midi-voice-tuner):**
    Passive TRS MIDI splitter box with built-in microphone and OLED pitch display guiding singers on whether they match the FM-1's current note.
+4. **[M-VAVE FM-1 3D CAD Model by Zande Creates](https://grabcad.com/library/m-vave-fm-1-1):**
+   High-precision 3D CAD model of the M-VAVE FM-1 chassis (accurate within ~0.1 mm) designed for modeling custom 3D-printed faceplates, travel cases, desktop angled stands, and hardware attachments.
 
 ---
 
