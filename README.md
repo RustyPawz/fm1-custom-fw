@@ -260,6 +260,42 @@ Firmwares built upon or directly forked from the foundational open-source multi-
       * **Performance Dub Controls & Echo Ripples:** Dedicated `REC` dub-hold button to freeze and loop the tape delay buffer infinitely while reverb continues ringing out and dry beats ride over top; real-time echo ripple animations visualising delay throws and loop positions on screen.
     * **Installation:** Browser WebMIDI installer via USB directly from the project site or in-browser WebAssembly simulation.
 
+28. **[Unholy Union by Sparky (actuallysparky)](https://github.com/actuallysparky/FM-1-Unholy-Union-generative-drone-firmware) ([Releases](https://github.com/actuallysparky/FM-1-Unholy-Union-generative-drone-firmware/releases)):**
+    * **License:** Open Source (GPL-3.0). Built on Felucca and Jangada.
+    * **Concept:** Generative ambient and drone firmware featuring church-themed visuals and atmospheric harmonics.
+    * **Features:** A single key press algorithmically generates and rolls a pad, an ambient sequence, a chord arpeggio, and a live-playable lead voice all locked to a shared harmonic key. Includes cathedral reverb algorithms, slow parameter drift, and church-inspired screen aesthetics.
+    * **Installation:** Flashing prebuilt `v0.2.3` releases via WebMIDI or CLI updater.
+
+29. **[Melodee (Tess) by Rastapopolix](https://github.com/Rastapopolix/melodee-tess) ([Releases](https://github.com/Rastapopolix/melodee-tess/releases)):**
+    * **License:** Open Source (GPL-3.0). Fork of Melodee by Leo Kuroshita.
+    * **Concept:** Algorithmic and generative pattern expansion for Melodee's 4-track synthesizer engine.
+    * **Features:** Adds four distinct algorithmic note generators across its four tracks: Turing machine shift-register random loops, Euclidean rhythmic distribution, Markov chain note transitions, and Morph phrase mutation. Features dedicated on-device Evolve, Form, and Tweak pages for dynamically mutating melodic phrases and structuring live song sections.
+    * **Installation:** Flashing prebuilt `v1.1.0` releases via WebMIDI.
+
+30. **[REGGAE-OS by Kemar Pennant (KemstheSage)](https://github.com/KemstheSage/reggae-os):**
+    * **License:** Open Source (GPL-3.0). Derivative of Felucca 1.6.1.
+    * **Concept:** Dub and roots reggae performance firmware transforming the FM-1 into a portable reggae sound system.
+    * **Features:** Dedicated reggae tonewheel organ and deep sub-bass sound engines, intuitive four-knob dub shaping, and an animated retro sound system UI on the color display.
+    * **Installation:** Build and flash via CLI toolchain.
+
+31. **[Glitchbox by Erik de Vos](https://github.com/erikdevos/glitchbox):**
+    * **License:** Open Source (GPL-3.0). Fork of Felucca 1.5.1.
+    * **Concept:** Harsh, experimental glitch synthesizer and live performance noise box.
+    * **Features:** Self-chopping glitch synthesizer engine, a crushed bit-reduced synthesized drum kit, and live punch-in performance effects (beat rolls, rhythmic gating, pitch sweeps, and bitcrush filters) — 100% synthesized in real time without sample playback dependencies.
+    * **Installation:** Build and flash via CLI toolchain.
+
+32. **[FM-1 T1 by Tensor-Programming](https://github.com/tensor-programming/fm1-t1):**
+    * **License:** Open Source (GPL-3.0). Fork of Felucca 1.6.
+    * **Concept:** Torso T-1 style generative algorithmic sequencer firmware for the FM-1.
+    * **Features:** Six tracks running algorithmic generative cycles inspired by the Torso T-1 hardware sequencer, featuring Euclidean rhythm generation, pitch mapping, velocity accentuation, and simultaneous MIDI output routing across five tracks.
+    * **Installation:** Build and flash via CLI toolchain.
+
+33. **[Patricktronics by gaumondp](https://github.com/gaumondp/patricktronics):**
+    * **License:** Open Source (GPL-3.0). Derivative of Felucca.
+    * **Concept:** Self-evolving ambient looping synthesizer inspired by Robert Fripp and Brian Eno's tape-delay Frippertronics setup.
+    * **Features:** Locks a musical palette of up to five notes played through an FM sound engine, while a bounded random generator continuously rearranges the sequence note order, octave, and timing over time into an endless, evolving ambient soundscape.
+    * **Installation:** Build and flash via CLI toolchain.
+
 #### 1.1.2. SLOOP Ecosystem (Groovebox Core & Derived Firmwares)
 
 
@@ -611,8 +647,41 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **Features:** Four industrial distortion modes, formant vowel and screaming resonant filters, real-time FFT audio spectrogram visualization, 4-track tape deck style interface, and an automated algorithmic song generator spanning 49 musical genres (including modern Trap, Drill, and industrial soundscapes).
     * **Installation:** In-browser WebAssembly simulator and WebMIDI installer or flashing prebuilt `gammawave-1.0-GW.fwsc`.
 
+29. **[TERKINSTEIN by TerkWerX](https://github.com/TerkWerX/FM1-TERKINSTEIN-Firmware) ([Releases](https://github.com/TerkWerX/FM1-TERKINSTEIN-Firmware/releases)):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Dark performance synth and 4-track groovebox with a cybernetic reactive UI.
+    * **Features:** 64 curated sounds, 6-operator FM engine, metallic distortion modes, fully synthesized drum kits and pads, reactive neon purple-and-green display animations, and 64-step tracks across 4 pattern banks.
+    * **Installation:** Flashing prebuilt `v0.22.0-dev` releases via WebMIDI or CLI updater.
 
+30. **[Niagara Drift by Evan Yerburgh](https://github.com/evanyerburgh/niagara-drift) ([Releases](https://github.com/evanyerburgh/niagara-drift/releases)):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Immersive dual-drone synthesizer with slow algorithmic parameter drift.
+    * **Features:** Two continuously sounding drones with partner and sub-oscillators, resonant multi-mode filters, dual-waveform LFO, rhythmic swell generator, stereo delay and reverb, 16 pre-programmed sound scenes, and slow continuous automatic drift.
+    * **Installation:** Flashing prebuilt `v0.1-beta` releases via WebMIDI or CLI updater.
 
+31. **[MNM-1 by sirpearson](https://github.com/sirpearson/fm-1-monomachine):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Six-track monophonic groovebox inspired by the workflow of the legendary Elektron Monomachine.
+    * **Features:** One dedicated drum kit track and five monophonic synth tracks each hosting independent synthesis machines, a 64-step sequencer with parameter locks (p-locks) per step, three assignable LFOs per track, and per-track stereo delay lines.
+    * **Installation:** Build and flash via CLI toolchain.
+
+32. **[SIDOU by Denis Sablic (dsablic)](https://github.com/dsablic/sidou):**
+    * **License:** Open Source (GPL-3.0-or-later).
+    * **Concept:** Commodore 64 SID chip (MOS 6581/8580) emulation instrument for the FM-1.
+    * **Features:** Authentic software SID emulation, real-time live performance mode, capacitive key and USB-MIDI input response, with an onboard step sequencer and `.sid` chiptune file playback architecture.
+    * **Installation:** Build from source / desktop simulation.
+
+33. **[TripDeck by anonymousacademe](https://github.com/anonymousacademe/FM-1-TripDeck):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Psychedelic synthesizer where every screen page is an interactive full-screen animated graphic driven by the four rotary encoders.
+    * **Features:** Sitar, evolving ambient pad, pipe organ, and bell FM voices; spiral echo delay, shimmer reverb, formant vowel filter, musical scale lock, integrated arpeggiator, and step sequencer.
+    * **Installation:** Build and flash via CLI toolchain.
+
+34. **[Evander's Music Box by Mike Tsakiroglou (MikeTsak)](https://github.com/MikeTsak/Evanders-Music-Box--FM-1-LARP-firmware) ([Releases](https://github.com/MikeTsak/Evanders-Music-Box--FM-1-LARP-firmware/releases)):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Roleplaying-themed firmware transforming the FM-1 into an elven bard's enchanted music box for tabletop and LARP gaming sessions.
+    * **Features:** Four-track medieval workshop with a 64-step sequencer, plus an Encounter mode offering 16 instant atmospheric scene soundtracks for live games. Features custom fantasy UI and boot artwork.
+    * **Installation:** Flashing prebuilt `v1.3` releases via WebMIDI or CLI updater.
 
 ### 1.2. Modular Firmware Platforms & Builders
 
@@ -695,6 +764,18 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **Features:** 11 distinct pitched flatulence sample sounds, integrated 16-step sequencer, dynamic pitch modulation, and onboard stereo delay and reverb effects.
     * **Installation:** Build and flash via CLI toolchain.
 
+ 7. **[Trumpagotchi by adamcharleswilsonmusic-code](https://github.com/adamcharleswilsonmusic-code/Trumpagotchi) ([Releases](https://github.com/adamcharleswilsonmusic-code/Trumpagotchi/releases)):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Virtual-pet Tamagotchi-style game and mini-instrument for the FM-1 featuring pixel-art animations.
+    * **Features:** Four dedicated action keys allow feeding, praising, cleaning, and resting the pet. The white keys play a pentatonic musical instrument, and keeping the pet happy and well-rested unlocks accompanying bongo rhythm tracks.
+    * **Installation:** Flashing prebuilt `v1.0.0` releases via WebMIDI or CLI updater.
+
+ 8. **[Trireme FM-1 by ignis32](https://github.com/ignis32/trireme_fm1) ([Releases](https://github.com/ignis32/trireme_fm1/releases)):**
+    * **License:** Open Source (GPL-3.0).
+    * **Concept:** Transforms the FM-1 into a fully programmable USB computer keyboard and macro pad with Vial GUI configuration support.
+    * **Features:** Assign any standard keyboard key, multimedia shortcut, or mouse action to each capacitive key, button, and rotary encoder; five distinct layout layers, advanced macros, on-device configuration editor, and instant USB HID compatibility.
+    * **Installation:** Flashing prebuilt `v0.1` releases via WebMIDI.
+
 ### 1.4. Stock Firmware Patchers & Binary Mods
 
  1. **[FM-1 Firmware Patcher by Christian Zietz (czietz)](https://github.com/czietz/fm1-firmware-patcher):**
@@ -765,20 +846,23 @@ Useful open-source tools, documentation, and SDK repositories:
  7. **[fm1-linux-update by fuleo](https://github.com/fuleo/fm1-linux-update):**
     Linux CLI updater tool for flashing and verifying stock V14 to V15 firmware binaries over USB-MIDI.
 
- 8. **[FM-1 Firmware Patcher by Christian Zietz](https://github.com/czietz/fm1-firmware-patcher):**
-    Python patcher utility applying fixes to the official stock V15 firmware binary: corrects oscillator detune to match Dexed, strips unexpected MIDI aftertouch vibrato, and updates oscilloscope/cursor palette.
-
- 9. **[JieLi USB Boot Key Activation (jielie docs)](https://kagaimiq.github.io/jielie/isp/usb/usb-key.html):**
+ 8. **[JieLi USB Boot Key Activation (jielie docs)](https://kagaimiq.github.io/jielie/isp/usb/usb-key.html):**
     Documentation on triggering JieLi hardware USB boot loader mode via D+/D- signal patterns and ISP keys.
 
-10. **[ip2k/mvave-fm1-open-firmware Repository](https://github.com/ip2k/mvave-fm1-open-firmware):**
+ 9. **[ip2k/mvave-fm1-open-firmware Repository](https://github.com/ip2k/mvave-fm1-open-firmware):**
     Research project towards an open-source firmware for the M-VAVE FM-1. Includes specification, reference implementation, and simulation testbench for an **RP2040-based `USB_KEY` hardware recovery dongle** (`dongle/` directory) that forces the JieLi AC791N SoC into mask-ROM USB download mode (`UBOOT1.00`) via the external USB-C port, enabling low-level flash backup and unbricking.
 
-11. **[Custom Bootloader & Full Flash Backup/Restore Flasher by mobiliakas1](https://www.reddit.com/r/MVaveFM1/comments/1x6xtz1/testers_for_custom_bootloader_needed/):**
+10. **[Custom Bootloader & Full Flash Backup/Restore Flasher by mobiliakas1](https://www.reddit.com/r/MVaveFM1/comments/1x6xtz1/testers_for_custom_bootloader_needed/):**
     Under-development custom recovery bootloader and cross-platform flasher utility (Windows/macOS/Linux) for FM-1 and SMK-37. Enables full 1 MB SPI flash backup/restore over plain USB and provides standalone recovery without requiring external hardware dongles (RP2040/Transporter) if a bad firmware flash occurs.
 
-12. **[The FM-1 Firmware Hub (Make Firmware, Not War)](https://thefirmwarehub.com/) ([List View](https://thefirmwarehub.com/?view=list)):**
+11. **[The FM-1 Firmware Hub (Make Firmware, Not War)](https://thefirmwarehub.com/) ([List View](https://thefirmwarehub.com/?view=list)):**
     Web-based firmware manager and one-click WebMIDI installer created by Sven Trogus (zvenson). Allows previewing, installing, and switching between 50+ open-source community firmwares for the M-VAVE FM-1 directly from Chrome/Edge with automatic nightly updates from author repositories and instant rollback to official stock V15 firmware.
+
+12. **[Slipway by Discodave-Glitch](https://github.com/Discodave-Glitch/slipway) ([Releases](https://github.com/Discodave-Glitch/slipway/releases)):**
+    Windows desktop application that catalogues community FM-1 firmwares, validates downloaded packages against published cryptographic hashes, and installs them through Felucca's flasher engine with a stock-first upgrade safety rule and USB recovery guide.
+
+13. **[FM-SWITCH by Drew Robinson (ocean)](https://github.com/ocean/FM-SWITCH):**
+    Native iOS companion app that installs and swaps FM-1 firmwares directly from an iPhone/iPad over USB-C using CoreMIDI, featuring an offline catalogue of community firmwares saved locally on the device for on-the-go flashing without a laptop.
 
 ### 3.2. Reverse Engineering, Disassembly & Decompilation
 
@@ -934,7 +1018,10 @@ Useful open-source tools, documentation, and SDK repositories:
  3. **[awesome-fm-1 by cicloid](https://github.com/cicloid/awesome-fm-1):**
     A curated awesome-list of resources, custom firmwares, tools, and open-source projects for the M-VAVE FM-1 pocket synthesizer.
 
- 4. **[Fluyt by rgrvmusic](https://www.reddit.com/r/LogueSDK/comments/1x3upww/fluyt_felucca_synth_engines_for_drumlogue/):**
+ 4. **[altstrument: M-VAVE FM-1 Directory](https://altstrument.org/devices/m-vave-fm-1):**
+    Open-source device registry and custom firmware catalog for the M-VAVE FM-1 tracking 90+ firmwares, companion tools, licenses, release histories, and brick-risk flags.
+
+ 5. **[Fluyt by rgrvmusic](https://www.reddit.com/r/LogueSDK/comments/1x3upww/fluyt_felucca_synth_engines_for_drumlogue/):**
     Community port and adaptation of the open-source **Felucca** synthesizer engines from the M-VAVE FM-1 to the **Korg drumlogue** (LogueSDK user synth unit), demonstrating cross-platform portability of Felucca DSP algorithms.
 
 ### 3.7. Custom Soundbanks & Preset Collections
