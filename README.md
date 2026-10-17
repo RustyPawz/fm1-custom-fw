@@ -354,11 +354,11 @@ Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its 
       * **Live Performance Navigation:** Quick page-jumping by turning the `PRESETS` encoder while holding page navigation buttons.
     * **Installation:** One-click USB browser installer, web-based companion librarian/editor, or in-browser emulator.
 
- 6. **[ORBIT by dspaudio](https://github.com/dspaudio/orbit) ([Web Emulator](https://dspaudio.github.io/orbit-web-emu/)):**
+ 6. **[ORBIT by dspaudio](https://github.com/dspaudio/orbit) ([Web Installer](https://dspaudio.github.io/orbit/) | [Web Emulator](https://dspaudio.github.io/orbit-web-emu/)):**
     * **License:** Open Source (GPL-3.0). Based on SLOOP.
     * **Concept:** Groovebox with visual aesthetic and screen interfaces inspired by the Teenage Engineering OP-1.
     * **Features:** Integrated sample manipulation tools and an event tape mechanism for dynamically shifting and rearranging what the 4 tracks play.
-    * **Installation:** Browser WebMIDI installer via USB.
+    * **Installation:** In-browser WebMIDI installer via USB directly from the installer page or web emulator.
 
  7. **[NoteSorcery by catacombius](https://github.com/catacombius/NoteSorcery):**
     * **License:** Open Source (GPL-3.0). Built on SLOOP.
@@ -410,7 +410,17 @@ Firmwares centered around the **SLOOP** 4-track live groovebox workflow and its 
       * **Web 3D Simulator & Recorder:** Includes an interactive in-browser 3D model simulator running the real firmware via WebAssembly with audio playback and a Win98-style screen & sound recorder widget.
     * **Installation:** One-click WebMIDI installer via USB directly on the website or flashing `release/winampfm-0.12.fwsc`.
 
- 14. **[MYCELIUM by Mandalars](https://github.com/megagott/mycelium-fm1) ([Website](https://www.mandalars.org/mandalars/fm1/) | [Releases](https://github.com/megagott/mycelium-fm1/releases)):**
+ 14. **[No Man Sky FM by hericdk](https://github.com/hericdk/nomanskyFM) ([Website & Web Installer](https://hericdk.github.io/nomanskyFM/) | [3D Web Simulator](https://hericdk.github.io/nomanskyFM/#simulator)):**
+     * **License:** Open Source (GPL-3.0). Built upon SLOOP 2.7.1 (isod89) and Felucca (Leo Kuroshita / Hügelton Instruments).
+     * **Concept:** Space exploration RPG adventure and live performance groovebox firmware for the FM-1: fly between procedurally generated planetary systems using the rotary knobs while the other hand performs and arranges the live soundtrack.
+     * **Features:**
+       * **Spaceflight & Planet Exploration:** Pilot a spacecraft across star systems with KNOB 1 (turn/steer) and KNOB 2 (velocity/thrust); land on planetary surfaces, mine mineral resources, fight sentinel robots, warp between stars, and call in your starship via OCT- hold commands.
+       * **Interactive Cockpit & Camera Zoom:** KNOB 3 cycles 4 camera perspectives: wide orbit, near flyby, close-up chase, and internal cockpit cabin view.
+       * **Live Soundtrack Engine:** Integrated SLOOP 2.7.1 groovebox core allows live sequencing, synth solos, and beat jamming simultaneously while piloting the spacecraft.
+       * **Web 3D Simulator & Installer:** Includes an interactive in-browser 3D model simulator running the firmware via WebAssembly with sound output, plus one-click browser WebMIDI installation directly from the project site.
+     * **Installation:** One-click WebMIDI installer via USB directly on the website or flashing `nomanskyfm-0.4.fwsc`.
+
+ 15. **[MYCELIUM by Mandalars](https://github.com/megagott/mycelium-fm1) ([Website](https://www.mandalars.org/mandalars/fm1/) | [Releases](https://github.com/megagott/mycelium-fm1/releases)):**
      * **License:** Open Source (GPL-3.0). Built upon Felucca and SLOOP.
      * **Concept:** Psychedelic dance music groovebox firmware dedicated to Forest, Psytrance, Goa, and Hitech production on the FM-1.
      * **Features:** Custom-crafted punchy trance drum kits, alien psychedelic icons and animations, fast rolling 16th-note bassline tools, and four factory demo arrangements.
@@ -683,6 +693,24 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **Features:** Four-track medieval workshop with a 64-step sequencer, plus an Encounter mode offering 16 instant atmospheric scene soundtracks for live games. Features custom fantasy UI and boot artwork.
     * **Installation:** Flashing prebuilt `v1.3` releases via WebMIDI or CLI updater.
 
+35. **[LOF-1 by RedtailWorks](https://github.com/RustyPawz/fm1-HYP1) ([Website & Web Installer](https://rustypawz.github.io/fm1-HYP1/lof/) | [Web Emulator](https://rustypawz.github.io/fm1-HYP1/lof/emu/) | [Manual](https://rustypawz.github.io/fm1-HYP1/lof/manual/) | [Reddit Announcement](https://www.reddit.com/r/MVaveFM1/comments/1x7pbwa/lof1_a_generative_lofi_ambiance_machine_with/)):**
+    * **License:** Open Source (GPL-3.0). Built on AMB-1 (Charles Vestal) and Felucca.
+    * **Concept:** Generative lo-fi ambience machine and tired jazz band groovebox: you play the lead on the capacitive keys, and an intelligent backing band listens to which chord your notes imply, dynamically following your performance with comp, bass, and drums.
+    * **Features:**
+      * **Interactive Lead & Tired Jazz Band:** 20 acoustic and FM instruments (Rhodes, Wurli, FM piano, upright pianos, vibes, marimba, kalimba, tenor sax, muted trumpet, clarinet, flute, ocarina, harp, music box).
+      * **Comp, Bass & Call-and-Response:** Automatic chord re-voicing on changes (held, stabs, offbeats, arpeggios), walking/dub bass, and an "Answer" engine that dynamically echoes phrases or invents counter-melodies when you pause.
+      * **Daydream Mode:** If left untouched, an algorithmic ghost takes over the lead melodies with configurable phrase density until any key is pressed to take back control.
+      * **16-Step Drum Sequencer & Drift:** 8 drum lanes across Dusty (samples) and Tape (synthesized) kits with groove swing and automatic pattern drift.
+      * **Dust Signal Chain & Old TV Display:** Authentic vinyl crackle, cassette hiss, reel-to-reel saturation, and radio static with wow/flutter and granular smear; vintage CRT scanlines with 5 color themes (Lamp, Matcha, Sakura, Midnight, Sepia).
+      * **Live Performance FX Keys:** Hardware keys map to tape stop, backspin, record skip, half-time, stutter, mufflers, and throws.
+    * **Installation:** In-browser WebAssembly emulator and WebMIDI installer directly from the project site or flashing prebuilt `lof1-0.0.41.fwsc`.
+
+36. **[ECO-1 by RedtailWorks](https://github.com/RustyPawz/fm1-HYP1) ([Website & Web Installer](https://rustypawz.github.io/fm1-HYP1/eco/) | [Web Emulator](https://rustypawz.github.io/fm1-HYP1/eco/emu/)):**
+    * **License:** Open Source (GPL-3.0). Fork of AMB-1.
+    * **Concept:** Generative botanical ambient synthesizer turning the FM-1 into an algorithmic musical plant.
+    * **Features:** Three virtual leaves each accumulating charge from ambient light and rainfall; full leaves discharge melodic notes over a continuous stem drone, reacting dynamically to changing weather, time of day, and wind conditions.
+    * **Installation:** Browser WebMIDI installer via USB directly from the project site or flashing prebuilt `eco1-0.0.41.fwsc`.
+
 ### 1.2. Modular Firmware Platforms & Builders
 
  1. **[fm1-rocket-os by cmlarsen](https://github.com/cmlarsen/fm1-rocket-os):**
@@ -814,6 +842,7 @@ All technical deep dives, hardware reverse engineering findings, bootloader memo
 * **Firmware Size Boundaries:** SPI flash memory budget, execution model (XIP), and partition limits.
 * **Python Firmware Utility:** CLI utility ([`fm1_flasher.py`](fm1_flasher.py)) for extracting firmware images and exploring protocol exchanges.
 * **Disassembly & Tooling:** Ghidra processor module ([`ghidra-jieli`](https://github.com/kagaimiq/ghidra-jieli)) and official Pi32v2 toolchain notes.
+* **Firmware Security & BadUSB Threat Modeling:** Theoretical risks of unsigned firmware execution (e.g. re-enumerating USB descriptors to standard HID keyboard to inject keystroke payloads) and host security mitigation considerations.
 
 **Read the full documentation:** **[REVERSE_ENGINEERING.md](REVERSE_ENGINEERING.md)**
 

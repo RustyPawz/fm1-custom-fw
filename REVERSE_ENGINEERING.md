@@ -244,3 +244,20 @@ Reverse-engineering JieLi microcontrollers (AC791N / WL82 / AC69x series) requir
 
 * **JieLi Official Toolchain (`pi32v2-elf-objdump`):**
   Provides 100% accurate instruction decoding from the vendor SDK, used in combination with Ghidra for verifying complex instruction groups.
+
+---
+
+## 10. Firmware Security & BadUSB Threat Modeling
+
+With the rise of custom community firmwares, community discussions have raised valid threat models regarding unsigned firmware execution on host computers (e.g. [Reddit: Security concern: BadFM1 Exploit Theory](https://www.reddit.com/r/MVaveFM1/comments/1x816h9/security_concern_badfm1_exploit_theory/)):
+
+* **Absence of Cryptographic Firmware Signing:** The JieLi AC791N SoC and the stock bootloader do not enforce cryptographic digital signatures on application firmware images (`.fwsc`). Any binary matching the container format and vector table will execute.
+* **USB Class Reconfiguration (BadUSB Attack Surface):**
+  * The JieLi AIoT SDK allows configuring the device's USB descriptor to any standard USB class via `#define USB_DEVICE_CLASS_CONFIG`.
+  * Legitimate custom firmwares (such as [Trireme FM-1](README.md#13-gaming-emulators--non-audio-ports-games--experiments) and [FM-1 Macropad Patch](README.md#14-stock-firmware-patchers--binary-mods)) intentionally demonstrate switching the USB interface into a standard Human Interface Device (HID) keyboard/composite device.
+  * In a theoretical rogue or compromised firmware scenario, a malicious binary flashed over WebMIDI could reboot and act as a BadUSB/Rubber Ducky device, injecting keystrokes into the host operating system (e.g., opening a terminal or executing curl/powershell downloaders) immediately upon connecting.
+  * If a rogue firmware eliminates USB-MIDI descriptors entirely, subsequent recovery via standard WebMIDI browser flashers may become disabled, necessitating low-level mask-ROM recovery (`WL82 UBOOT1.00` via plain USB or hardware `USB_KEY` dongle).
+* **Mitigation Best Practices:**
+  * Only flash firmware built from public, verifiable open-source repositories with clean revision histories.
+  * Audit build actions, releases, and source diffs before flashing unknown binaries.
+  * On sensitive host workstations, connect experimental USB devices through isolated USB hubs, dedicated non-privileged test machines, or VMs with USB passthrough controls.
