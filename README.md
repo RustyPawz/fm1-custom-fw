@@ -169,7 +169,7 @@ Firmwares built upon or directly forked from the foundational open-source multi-
       * **In-Browser Emulator:** Real firmware compiled to WebAssembly running directly in the browser at [apiel.github.io/fm1-tribe](https://apiel.github.io/fm1-tribe/#emulator).
     * **Installation:** Browser WebMIDI installer via USB directly from the project page.
 
-18. **[Golana by Gadlele](https://github.com/Gadlele/Golana):**
+18. **[Golana by Gadlele](https://github.com/Gadlele/Golana) ([Website & Web Installer](https://gadlele.github.io/Golana/) | [Releases](https://github.com/Gadlele/Golana/releases)):**
     * **License:** Open Source (GPL-3.0). Built on Felucca by Leo Kuroshita / Hügelton Instruments.
     * **Concept:** Korg microKORG-inspired analog-modeling synthesizer firmware for the FM-1 featuring the classic MATRIX editing workflow.
     * **Features:**
@@ -177,7 +177,7 @@ Firmwares built upon or directly forked from the foundational open-source multi-
       * **Resonant Multi-Mode Filter:** 24 dB/oct LPF, 12 dB/oct LPF, BPF, HPF, and an aggressive screaming MS-20-style resonant low-pass filter model.
       * **Matrix Interface & Waveform Drawing:** On-device 240 × 240 graphics rendering real-time waveforms for OSC 1/2, dynamic filter response curves, envelope graphs, and live LFO waveforms calculated directly from parameter values.
       * **FX Chain & 16-Step Sequencer:** Integrated arpeggiator, 16-step sequencer with ties/slides per program, modulation FX (chorus, flanger, ensemble, phaser, metal distortion), tempo-synced delay, and reverb with flexible FX routing orders.
-    * **Installation:** Build and flash firmware via CLI toolchain (`tools/fm1_install.py`).
+    * **Installation:** Browser WebMIDI installer via USB directly from the project site or building/flashing firmware via CLI toolchain (`tools/fm1_install.py`).
 
 19. **[FANTASMA / Pelucco by Gadlele](https://github.com/Gadlele/Pelucco) ([Web Emulator / Artifact](https://claude.ai/artifact/RLDaXqXDuzzfyJZ8ibS5Gk)):**
     * **License:** Open Source (GPL-3.0). Built on Felucca by Leo Kuroshita / Hügelton Instruments.
@@ -615,11 +615,14 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **Features:** 4 physical electric piano models (tines, pickups, hammer character), modeled analog signal chain featuring compressor, drive, stereo tremolo or auto-wah, phaser, chorus, stereo delay, and reverb. Includes tap tempo, MIDI clock sync, musical scale quantization, and patch presets.
     * **Installation:** In-browser WebMIDI installer or flashing prebuilt `frodhes-X.X.X.fwsc`.
 
-22. **[Vector37 by genkigenki](https://github.com/genkigenki/Vector37) ([Repository](https://github.com/genkigenki/Vector37) | [Web Simulator](https://genkigenki.github.io/smk37/vector37-sim/)):**
+22. **[Vector37 by genkigenki](https://github.com/genkigenki/Vector37) ([Web Installer](https://genkigenki.github.io/smk37/#fw-vector37) | [Web Simulator](https://genkigenki.github.io/smk37/vector37-sim/) | [Releases](https://github.com/genkigenki/Vector37/releases) | [Reddit Announcement](https://www.reddit.com/r/MVaveFM1/comments/1x8eo32/vector37_update_more_sounds_a_smoother_screen_for/)):**
     * **License:** Open Source (GPL-3.0). Ported from the SMK-37 to FM-1.
     * **Concept:** Orbiting overtone vector synthesizer inspired by the Beetlecrab Vector.
-    * **Features:** Four corners each hosting two overtone generators, with a central sun moving along an orbital trajectory and an orbiting moon determining crossfade and balance levels between generators, while encoders shape the active planet's synthesis characteristics.
-    * **Installation:** Browser simulator and build/flash via toolchain.
+    * **Features:**
+      * **Orbiting Overtone Synthesis:** Four corners each hosting two overtone generators, with a central sun moving along an orbital trajectory and an orbiting moon determining crossfade and balance levels between generators, while encoders shape the active planet's synthesis characteristics.
+      * **Factory & User Preset Banks:** 32 factory sounds organized into two 16-preset banks (warm strings, ambient pads, choir, vintage organ, electric piano, plucked harp, and an 8-sound drum kit), with user preset saving to a dedicated USER bank via the PATCH button.
+      * **Performance & Hardware Features:** Configurable MIDI TRS OUT and USB IN routings via SETUP, plus 60 FPS display rendering optimizations.
+    * **Installation:** Browser WebMIDI installer via USB directly from the SMK-37 / FM-1 Hub, in-browser simulator, or flashing prebuilt release packages (`.fwsc`).
 
 23. **[HYP-1 by RedtailWorks](https://github.com/RustyPawz/fm1-HYP1) ([Website & Web Emulator](https://rustypawz.github.io/fm1-HYP1/)):**
     * **License:** Open Source. Forked from AMB-1 by Charles Vestal.
@@ -710,6 +713,38 @@ Firmwares featuring original sound engines, written-from-scratch architectures, 
     * **Concept:** Generative botanical ambient synthesizer turning the FM-1 into an algorithmic musical plant.
     * **Features:** Three virtual leaves each accumulating charge from ambient light and rainfall; full leaves discharge melodic notes over a continuous stem drone, reacting dynamically to changing weather, time of day, and wind conditions.
     * **Installation:** Browser WebMIDI installer via USB directly from the project site or flashing prebuilt `eco1-0.0.41.fwsc`.
+
+37. **[P6 by Jonbenderr](https://github.com/Jonbenderr/fm1-p6) ([Web Installer](https://jonbenderr.github.io/fm1-p6/install/) | [Web Emulator](https://jonbenderr.github.io/fm1-p6/emu/) | [Releases](https://github.com/Jonbenderr/fm1-p6/releases)):**
+    * **License:** Open Source (GPL-3.0). Built on Dinghy by Charles Vestal.
+    * **Concept:** Korg Polysix-inspired 6-voice analog polysynthesizer firmware for the M-VAVE FM-1.
+    * **Features:**
+      * **6-Voice Analog Architecture:** 6 voices of polyphony, 1 VCO per voice with sub-oscillator (1 or 2 octaves down), pulse width modulation (PWM), and white noise generator.
+      * **Resonant 4-Pole VCF & Envelopes:** Modeled SSM2044 24 dB/oct resonant low-pass filter with keyboard tracking and dedicated ADSR envelope generator.
+      * **Modulation & Vintage BBD Effects:** Modulation Generator (MG/LFO) with routing to VCO, VCF, and VCA; authentic bucket-brigade style analog Chorus, Phaser, and Ensemble spatial effects.
+      * **Key & Voicing Modes:** Polyphonic, Unison (all 6 voices stacked with detune), and Chord Memory modes, plus Key Hold latching and an integrated arpeggiator with up/down/random patterns and sync.
+      * **Preset Program Storage:** 32 preset program memories organized as 4 banks of 8 sounds (A-1 through D-8).
+    * **Installation:** Browser WebMIDI installer via USB, in-browser WebAssembly emulator, or flashing prebuilt release packages (`.fwsc`).
+
+38. **[Speak37 by genkigenki](https://github.com/genkigenki/Speak37) ([Web Installer](https://genkigenki.github.io/smk37/#fw-speak37) | [Releases](https://github.com/genkigenki/Speak37/releases) | [Reddit Announcement](https://www.reddit.com/r/MVaveFM1/comments/1x89f3y/speak37_a_free_talking_synth_firmware_for_the/)):**
+    * **License:** Open Source (GPL-3.0). Compatible with both M-VAVE SMK-37 and FM-1.
+    * **Concept:** Talking speech synthesizer and singing voice firmware for the FM-1: every keypress speaks or sings the next syllable or word of a sentence at that note's pitch, singing in multi-voice harmony when chords are played.
+    * **Features:**
+      * **Singing Synthesizer Engine:** 9 distinct speech voices (Classic Chip Robot, Giant, Whisper, Chipmunk, Alien, and more); chords sing in full musical harmony.
+      * **Rhythm Section & Fixed-Point 808:** Built-in fixed-point Roland TR-808 rhythm generator with 16 groove styles; pressing the PLAY button automatically speaks words on the beat over drum grooves.
+      * **Beatbox Drum Kit:** White and black keys double as vocal beatbox triggers (phonetic kicks, snares, hats, and vocal scratches).
+      * **MOPE Mode:** An interactive sullen robot mode that actively monitors your playing, responds with melancholic spoken remarks, and plays sad algorithmic interludes when ignored.
+    * **Installation:** Browser WebMIDI installer via USB directly from the SMK-37 / FM-1 Hub, or flashing prebuilt release packages (`.fwsc`).
+
+39. **[FMEL-1 (MEL) by Antonio Altea](https://github.com/AntonioAltea/fmel-1) ([Web Installer](https://antonioaltea.github.io/fmel-1/install/) | [Web Emulator](https://antonioaltea.github.io/fmel-1/) | [Releases](https://github.com/AntonioAltea/fmel-1/releases)):**
+    * **License:** Open Source (GPL-3.0). Built on Dinghy by Charles Vestal (SLOOP / Felucca lineage).
+    * **Concept:** Mellotron M400 tape keyboard instrument for the FM-1 with authentic tape mechanics, dual-tape blending, and vintage analog signal processing.
+    * **Features:**
+      * **Four Classic M400S Tapes:** Includes authentic tape recordings of Flute (Strawberry Fields Forever), 8-Voice Choir, Cello, and Vibraphone (digitized by Bernie Kornowicz / Taijiguy).
+      * **Tape Blending & Mechanics:** Seamless continuous blending between Tape A and Tape B across the keyboard, complete with authentic 8-second tape run-out physics, key release mechanical click, and half-speed tape motor playback (octave drop).
+      * **LOFI Tape Aging Section:** Real-time tape degradation processing featuring wow, flutter, tape hiss, age wear, dropouts, mechanical drift, drive, and lo-fi bitcrush.
+      * **Vintage FX & Sequencer:** Vibrato, Leslie rotary speaker, tape echo delay, spring/hall reverb, 2-band EQ, note HOLD latch, integrated arpeggiator, and 16-step pattern sequencer.
+      * **Custom Display Art:** Features custom animated tape transport graphics and screen artwork drawn by Javi.
+    * **Installation:** Browser WebMIDI installer via USB directly from the project site, in-browser WebAssembly emulator, or flashing prebuilt release packages (`.fwsc`).
 
 ### 1.2. Modular Firmware Platforms & Builders
 
@@ -887,7 +922,7 @@ Useful open-source tools, documentation, and SDK repositories:
 11. **[The FM-1 Firmware Hub (Make Firmware, Not War)](https://thefirmwarehub.com/) ([List View](https://thefirmwarehub.com/?view=list)):**
     Web-based firmware manager and one-click WebMIDI installer created by Sven Trogus (zvenson). Allows previewing, installing, and switching between 50+ open-source community firmwares for the M-VAVE FM-1 directly from Chrome/Edge with automatic nightly updates from author repositories and instant rollback to official stock V15 firmware.
 
-12. **[Slipway by Discodave-Glitch](https://github.com/Discodave-Glitch/slipway) ([Releases](https://github.com/Discodave-Glitch/slipway/releases)):**
+12. **[Slipway by Discodave-Glitch](https://github.com/Discodave-Glitch/slipway) ([Releases](https://github.com/Discodave-Glitch/slipway/releases) | [Reddit Announcement](https://www.reddit.com/r/MVaveFM1/comments/1x8ec69/slipway_free_fm1_firmware_manager_with_a/)):**
     Windows desktop application that catalogues community FM-1 firmwares, validates downloaded packages against published cryptographic hashes, and installs them through Felucca's flasher engine with a stock-first upgrade safety rule and USB recovery guide.
 
 13. **[FM-SWITCH by Drew Robinson (ocean)](https://github.com/ocean/FM-SWITCH):**
@@ -1034,6 +1069,14 @@ Useful open-source tools, documentation, and SDK repositories:
     * **Concept:** Comprehensive FM-1 editor, firmware database, emulator host, and automated release feed service.
     * **Automated Firmware Feed:** Runs a scheduled automated crawler tracking the [FM-1 Resource Hub](https://github.com/aroum/fm1-custom-fw) and upstream GitHub releases every 3 hours. Publishes a unified `feed.json` verifying firmware update packages (`.fwsc` SHA-256, `FELUCCA-LOADER-1` and `FM-1_` package markers, asset sizes, and web installer links) across 60+ projects.
     * **Felucca Web App & Deep Editor:** Includes companion [UplinkFeluccaEditor-WebApp](https://github.com/stanleygurvich/UplinkFeluccaEditor-WebApp) with Web MIDI SysEx parameter control, custom package verification, backup tools, and in-browser mock testing.
+
+18. **[AMÉTRA-001 by Sopozcreations](https://ametra-liard.vercel.app/) ([Reddit Announcement](https://www.reddit.com/r/MVaveFM1/comments/1x89ias/am%C3%A9tra001_a_free_polymetric_sequencer_in_the/)):**
+    * **Concept:** Free browser-based polymetric MIDI sequencer and groove generator designed for the M-VAVE FM-1 (and compatible with external MIDI gear and DAWs via Web MIDI).
+    * **Features:**
+      * **4 Polymetric Loop Lanes:** Four polyrhythmic lanes running completely independent step counts (e.g. 16 vs 7 steps vs triplets) that drift continuously out of phase and realign over time.
+      * **Generative Chance & Mutation:** Per-track hit stutter, drift, and random dice-roll probability parameters.
+      * **Audio & MIDI Integration:** Supports internal sample playback or live microphone recording alongside Web MIDI transmission, plus direct WAV audio capture and standard MIDI file export.
+      * **User Interface:** Clean bilingual (English / French) responsive UI with built-in interactive help tooltips.
 
 ### 3.6. Developer Frameworks, UI Designers & Curated Collections
 
